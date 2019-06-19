@@ -1,0 +1,456 @@
+{
+  "name": "Credit Insight Service API Documentation",
+  "version": "3.8",
+  "baseURL": "http://staging-api.trustingsocial.com",
+  "categories": [
+    {
+      "title": "OTP SMS",
+      "items": [
+        "createOTPSMSRequest",
+        "checkOTPSMSRequestStatus",
+        "verifyOTP",
+        "requestCreditScoreOTP"
+      ]
+    },
+    {
+      "title": "Consent SMS",
+      "items": [
+        "createConsentSMSRequest",
+        "checkConsentSMSRequestStatus",
+        "requestCreditScoreConsent"
+      ]
+    },
+    { "title": "Contract", "items": ["requestCreditScoreContract"] }
+  ],
+  "apis": {
+    "login": {
+      "title": "Login",
+      "description": "Login to **Trusting Social** *server* with `user_name` and `password` to get `access_token`",
+      "method": "POST",
+      "endpoint": "/authentication/users/login",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "body": [
+        {
+          "key": "user_name",
+          "type": "String",
+          "defaultValue": "",
+          "description": "1 to 63 chars long. Only lowercase letters, numbers and underscore.",
+          "required": true
+        },
+        {
+          "key": "password",
+          "type": "String",
+          "defaultValue": "",
+          "description": "7 to 63 chars long, all characters",
+          "required": true
+        }
+      ]
+    },
+    "changePassword": {
+      "title": "Change/Update Password",
+      "description": "To **change** or **update** the password for `Admin` and `users`",
+      "method": "PATCH",
+      "endpoint": "/authentication/users/change_password",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "body": [
+        {
+          "key": "current_password",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Current/old password",
+          "required": true
+        },
+        {
+          "key": "password",
+          "type": "String",
+          "defaultValue": "",
+          "description": "New password. 7 to 63 chars long, all characters",
+          "required": true
+        }
+      ]
+    },
+    "createOTPSMSRequest": {
+      "title": "Create OTP SMS Request",
+      "description": "Create a request for asking borrower's sharing **credit insight consent**\n\n**Note**: Please use the **Encryption Tool** (*plus button at bottom right of the page*) to encrypt `requested_msisdn` field before sending the request.",
+      "method": "POST",
+      "endpoint": "/score_api/otp_sms_requests/create",
+      "dependsOn": ["login"],
+      "headers": [
+        {
+          "key": "Authorization",
+          "defaultValue": "Bearer ${login.data.access_token}",
+          "description": "Authorization token"
+        },
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "body": [
+        {
+          "key": "client_code",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Your unique client code assigned by TS",
+          "required": true
+        },
+        {
+          "key": "requested_msisdn",
+          "type": "String",
+          "defaultValue": "",
+          "description": "MSISDN encrypted by telco's public key",
+          "required": true,
+          "encryptionRequired": true
+        },
+        {
+          "key": "otp",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Your system generated otp (if you are using your own)",
+          "required": false
+        },
+        {
+          "key": "sms_version",
+          "type": "String",
+          "defaultValue": "",
+          "description": "This is an optional field to specify the version of otp sms content",
+          "required": false
+        }
+      ]
+    },
+    "checkOTPSMSRequestStatus": {
+      "title": "Check Request Status",
+      "description": "Periodically check on whether the **OTP** was delivered to the borrower",
+      "method": "GET",
+      "endpoint": "/score_api/otp_sms_requests/status",
+      "dependsOn": ["login", "createOTPSMSRequest"],
+      "headers": [
+        {
+          "key": "Authorization",
+          "defaultValue": "Bearer ${login.data.access_token}",
+          "description": "Authorization token"
+        },
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "parameters": [
+        {
+          "key": "request_id",
+          "defaultValue": "${createOTPSMSRequest.data.request_id}",
+          "description": "Request ID"
+        }
+      ]
+    },
+    "verifyOTP": {
+      "title": "Verify OTP",
+      "description": "Verify the **OTP** entered by the borrower.\n\n**Note**: Please use the **SMS Tools** (*plus button at bottom right of the page*) for receiving **OTP** SMS message from `requested_msisdn`.",
+      "method": "GET",
+      "endpoint": "/score_api/otp_sms_requests/verify",
+      "dependsOn": ["login", "createOTPSMSRequest"],
+      "headers": [
+        {
+          "key": "Authorization",
+          "defaultValue": "Bearer ${login.data.access_token}",
+          "description": "Authorization token"
+        },
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "parameters": [
+        {
+          "key": "request_id",
+          "defaultValue": "${createOTPSMSRequest.data.request_id}",
+          "description": "Request ID"
+        },
+        {
+          "key": "otp",
+          "defaultValue": "",
+          "description": "Borrower's OTP input"
+        }
+      ]
+    },
+    "requestCreditScoreOTP": {
+      "title": "Getting Credit Insight",
+      "description": "Get borrower's credit insight with `consent_id`\n\n**Note**: Please use the **Encryption Tool** (*plus button at bottom right of the page*) to encrypt `requested_msisdn` field before sending the request.",
+      "method": "POST",
+      "endpoint": "/score_api/credit_score_requests/create/with_internal_consent",
+      "dependsOn": ["login", "verifyOTP"],
+      "headers": [
+        {
+          "key": "Authorization",
+          "defaultValue": "Bearer ${login.data.access_token}",
+          "description": "Authorization token"
+        },
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "body": [
+        {
+          "key": "client_code",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Your unique client code assigned by TS",
+          "required": true
+        },
+        {
+          "key": "requested_msisdn",
+          "type": "String",
+          "defaultValue": "",
+          "description": "MSISDN encrypted by telco's public key",
+          "required": true,
+          "encryptionRequired": true
+        },
+        {
+          "key": "consent_id",
+          "type": "Number",
+          "defaultValue": "${verifyOTP.data.consent_id}",
+          "description": "Consent ID we gave you after the OTP is verified",
+          "required": true
+        },
+        {
+          "key": "plan_code",
+          "type": "String",
+          "defaultValue": "",
+          "description": "This is an optional field to tell us your plan to use our score for different purposes. It can be used for different pricing plan.",
+          "required": false
+        },
+        {
+          "key": "id_type",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Type of identification number of the MSISDN's owner that you are requesting credit score. By now, we only accept 'national_id'",
+          "required": false
+        },
+        {
+          "key": "id_value",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Value of identification number of the MSISDN's owner that you are requesting credit score. It is encrypted with OAEP RSA using Telco's public key",
+          "required": false,
+          "encryptionRequired": true
+        }
+      ]
+    },
+    "createConsentSMSRequest": {
+      "title": "Create Consent SMS Request",
+      "description": "Submit a Credit Insight request to **Trusting Social** *server*.\n\n**Note**: Please use the **SMS Tools** (*plus button at bottom right of the page*) for receiving consent request SMS message and sending consent accept/reject SMS message.",
+      "method": "POST",
+      "endpoint": "/score_api/consent_sms_requests/create",
+      "dependsOn": ["login"],
+      "headers": [
+        {
+          "key": "Authorization",
+          "defaultValue": "Bearer ${login.data.access_token}",
+          "description": "Authorization token"
+        },
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "body": [
+        {
+          "key": "client_code",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Your unique client code assigned by TS",
+          "required": true
+        },
+        {
+          "key": "requested_msisdn",
+          "type": "String",
+          "defaultValue": "",
+          "description": "MSISDN encrypted by telco's public key",
+          "required": true,
+          "encryptionRequired": true
+        },
+        {
+          "key": "sms_version",
+          "type": "String",
+          "defaultValue": "",
+          "description": "This is an optional field to specify the version of consent sms content",
+          "required": false
+        }
+      ]
+    },
+    "checkConsentSMSRequestStatus": {
+      "title": "Check Request Status",
+      "description": "Periodically check on whether the borrower has responded to the consent **SMS**",
+      "method": "GET",
+      "endpoint": "/score_api/consent_sms_requests/status",
+      "dependsOn": ["login", "createConsentSMSRequest"],
+      "headers": [
+        {
+          "key": "Authorization",
+          "defaultValue": "Bearer ${login.data.access_token}",
+          "description": "Authorization token"
+        },
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "parameters": [
+        {
+          "key": "request_id",
+          "defaultValue": "${createConsentSMSRequest.data.request_id}",
+          "description": "Request ID"
+        }
+      ]
+    },
+    "requestCreditScoreConsent": {
+      "title": "Getting Credit Insight",
+      "description": "Get borrower's credit insight with `consent_id`\n\n**Note**: Please use the **Encryption Tool** (*plus button at bottom right of the page*) to encrypt `requested_msisdn` field before sending the request.",
+      "method": "POST",
+      "endpoint": "/score_api/credit_score_requests/create/with_internal_consent",
+      "dependsOn": ["login", "checkConsentSMSRequestStatus"],
+      "headers": [
+        {
+          "key": "Authorization",
+          "defaultValue": "Bearer ${login.data.access_token}",
+          "description": "Authorization token"
+        },
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "body": [
+        {
+          "key": "client_code",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Your unique client code assigned by TS",
+          "required": true
+        },
+        {
+          "key": "requested_msisdn",
+          "type": "String",
+          "defaultValue": "",
+          "description": "MSISDN encrypted by telco's public key",
+          "required": true,
+          "encryptionRequired": true
+        },
+        {
+          "key": "consent_id",
+          "type": "Number",
+          "defaultValue": "${checkConsentSMSRequestStatus.data.consent_id}",
+          "description": "Consent ID we gave you after the OTP is verified",
+          "required": true
+        },
+        {
+          "key": "plan_code",
+          "type": "String",
+          "defaultValue": "",
+          "description": "This is an optional field to tell us your plan to use our score for different purposes. It can be used for different pricing plan.",
+          "required": false
+        },
+        {
+          "key": "id_type",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Type of identification number of the MSISDN's owner that you are requesting credit score. By now, we only accept 'national_id'",
+          "required": false
+        },
+        {
+          "key": "id_value",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Value of identification number of the MSISDN's owner that you are requesting credit score. It is encrypted with OAEP RSA using Telco's public key",
+          "required": false,
+          "encryptionRequired": true
+        }
+      ]
+    },
+    "requestCreditScoreContract": {
+      "title": "Getting Credit Insight",
+      "description": "Request Credit Insight from **Trusting Social** *server* with `external_source_id`\n\n**Note**: Please use the **Encryption Tool** (*plus button at bottom right of the page*) to encrypt `requested_msisdn` field before sending the request.",
+      "method": "POST",
+      "endpoint": "/score_api/credit_score_requests/create/with_external_consent",
+      "dependsOn": ["login"],
+      "headers": [
+        {
+          "key": "Authorization",
+          "defaultValue": "Bearer ${login.data.access_token}",
+          "description": "Authorization token"
+        },
+        {
+          "key": "Content-Type",
+          "defaultValue": "application/json",
+          "description": "Request content type"
+        }
+      ],
+      "body": [
+        {
+          "key": "client_code",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Your unique client code assigned by TS",
+          "required": true
+        },
+        {
+          "key": "requested_msisdn",
+          "type": "String",
+          "defaultValue": "",
+          "description": "MSISDN encrypted by telco's public key",
+          "required": true,
+          "encryptionRequired": true
+        },
+        {
+          "key": "external_source_id",
+          "type": "String",
+          "defaultValue": "",
+          "description": "The unique ID you assigned to the contract borrower signed with you",
+          "required": true
+        },
+        {
+          "key": "plan_code",
+          "type": "String",
+          "defaultValue": "",
+          "description": "This is an optional field to tell us your plan to use our score for different purposes. It can be used for different pricing plan.",
+          "required": false
+        },
+        {
+          "key": "id_type",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Type of identification number of the MSISDN's owner that you are requesting credit score. By now, we only accept 'national_id'",
+          "required": false
+        },
+        {
+          "key": "id_value",
+          "type": "String",
+          "defaultValue": "",
+          "description": "Value of identification number of the MSISDN's owner that you are requesting credit score. It is encrypted with OAEP RSA using Telco's public key",
+          "required": false,
+          "encryptionRequired": true
+        }
+      ]
+    }
+  }
+}
