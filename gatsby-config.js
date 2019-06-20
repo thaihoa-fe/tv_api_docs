@@ -3,7 +3,6 @@ module.exports = {
     title: 'Trust Vision API Documentation',
     description: 'Trust Vision API Documentation',
   },
-  pathPrefix: "/tv_api_docs/",
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
