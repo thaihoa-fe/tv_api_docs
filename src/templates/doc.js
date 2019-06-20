@@ -15,8 +15,6 @@ const Sidebar = styled.div`
   background: #f5f7fa;
   position: fixed;
   top: ${Layout.HEADER_HEIGHT}px;
-  padding-top: 10px;
-  padding-bottom: 38px;
   left: 0px;
   width: 24rem;
   height: calc(100vh - ${Layout.HEADER_HEIGHT}px);
