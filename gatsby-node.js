@@ -67,7 +67,6 @@ exports.createPages = async function ({ actions, graphql }) {
         actions.createRedirect({
           fromPath: '/',
           toPath: slug,
-          redirectInBrowser: true,
           isPermanent: true
         });
       }
