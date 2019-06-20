@@ -1,0 +1,908 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.5 'Muli',sans-serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:'Muli',sans-serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:'Muli',sans-serif;font-weight:600;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:'Muli',sans-serif;font-weight:600;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:'Muli',sans-serif;font-weight:600;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:'Muli',sans-serif;font-weight:600;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:'Muli',sans-serif;font-weight:600;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;color:inherit;font-family:'Muli',sans-serif;font-weight:600;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}ul{margin-left:1.5rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.5rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;font-size:0.85rem;line-height:1.5rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;font-size:1rem;line-height:1.5rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}blockquote{margin-left:1.5rem;margin-right:1.5rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.5rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.5rem;}b{font-weight:600;}strong{font-weight:600;}dt{font-weight:600;}th{font-weight:600;}li{margin-bottom:calc(1.5rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.5rem;margin-bottom:calc(1.5rem / 2);margin-top:calc(1.5rem / 2);}li > ul{margin-left:1.5rem;margin-bottom:calc(1.5rem / 2);margin-top:calc(1.5rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.5rem / 2);}code{font-size:0.85rem;line-height:1.5rem;}kbd{font-size:0.85rem;line-height:1.5rem;}samp{font-size:0.85rem;line-height:1.5rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1rem;padding-right:1rem;padding-top:0.75rem;padding-bottom:calc(0.75rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}</style><link rel="apple-touch-icon" sizes="72x72" href="/tv_api_docs/icons/icon-72x72.png?v=008654519ce705ac7bc44303a9014606"/><title data-react-helmet="true">Trust Vision API Documentation | Trust Vision API Documentation</title><meta data-react-helmet="true" name="description" content="Trust Vision API Documentation"/><meta data-react-helmet="true" property="og:title"/><meta data-react-helmet="true" property="og:description" content="Trust Vision API Documentation"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title"/><meta data-react-helmet="true" name="twitter:description" content="Trust Vision API Documentation"/><style data-styled="fHLmSZ gyUZAB erLJuG ifaBTi fgbQqG cwYqKg jIcSUa cpbkbW dhiOgq NcbFr fmGQJn bdEtUt jfTzjc ezTDOH dxAmsz" data-styled-version="4.2.0">
+/* sc-component-id: sc-global-1844240232 */
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;} body{background:#f5f7fa;margin:0;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+/* sc-component-id: Header__Wrapper-wmnx12-0 */
+.fHLmSZ{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:#fff;border-bottom:1px solid #e4e4e4;display:block;position:fixed;top:0;-webkit-transition:all 0.15s ease-out;transition:all 0.15s ease-out;width:100%;z-index:100;color:#4c555a;height:60px;}
+/* sc-component-id: Header__Main-wmnx12-1 */
+.gyUZAB{margin:0 15px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:inherit;box-sizing:border-box;}
+/* sc-component-id: Header__LogoLink-wmnx12-2 */
+.erLJuG{line-height:30px;height:30px;}
+/* sc-component-id: Header__SiteTitle-wmnx12-3 */
+.ifaBTi{border-left:1px solid rgba(0,0,0,0.3);height:30px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-left:20px;padding-left:20px;font-size:18px;color:#1e2021;}
+/* sc-component-id: Header__RightPanel-wmnx12-4 */
+.cwYqKg{margin-left:auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:row-reverse nowrap;-ms-flex-flow:row-reverse nowrap;flex-flow:row-reverse nowrap;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;} .cwYqKg a{-webkit-text-decoration:none;text-decoration:none;color:inherit;} .cwYqKg > * + *{margin-right:28px;}
+/* sc-component-id: Header__VersionLabel-wmnx12-7 */
+.fgbQqG{margin-top:2px;margin-left:20px;font-family:Arial;}
+/* sc-component-id: Layout__Wrapper-sc-11262ql-0 */
+.jIcSUa{margin:0;padding-top:60px;min-height:100vh;}
+/* sc-component-id: MenuItem__Link-z7n7m6-0 */
+.fmGQJn{display:block;height:38px;line-height:38px;width:100%;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#4c555a;background:transparent;font-weight:500;-webkit-text-decoration:none;text-decoration:none;padding:0 8px 0 15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:12px;} .fmGQJn span{text-transform:uppercase;font-size:16px;font-weight:600;} .fmGQJn span{height:28px;line-height:28px;text-align:left;} .fmGQJn svg{display:none;margin-right:8px;vertical-align:middle;} .fmGQJn strong{font-size:14px;display:none;margin-right:8px;} .fmGQJn:hover{color:#0099e5;background:rgba(219,239,249,0.6);} .fmGQJn.active{color:#0099e5;cursor:default;}.bdEtUt{display:block;height:38px;line-height:38px;width:100%;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#4c555a;background:transparent;font-weight:500;-webkit-text-decoration:none;text-decoration:none;padding:0 8px 0 30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;} .bdEtUt span{height:28px;line-height:28px;text-align:left;} .bdEtUt svg{display:none;margin-right:8px;vertical-align:middle;} .bdEtUt strong{font-size:14px;display:inline;margin-right:8px;} .bdEtUt:hover{color:#0099e5;background:rgba(219,239,249,0.6);} .bdEtUt.active{color:#0099e5;cursor:default;}.jfTzjc{display:block;height:38px;line-height:38px;width:100%;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#4c555a;background:transparent;font-weight:500;-webkit-text-decoration:none;text-decoration:none;padding:0 8px 0 45px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;} .jfTzjc span{height:28px;line-height:28px;text-align:left;} .jfTzjc svg{display:inline;margin-right:8px;vertical-align:middle;} .jfTzjc strong{font-size:14px;display:none;margin-right:8px;} .jfTzjc:hover{color:#0099e5;background:rgba(219,239,249,0.6);} .jfTzjc.active{color:#0099e5;cursor:default;}
+/* sc-component-id: TOC__Menu-sc-1pqf0oz-0 */
+.NcbFr{width:100%;font-size:14px;}
+/* sc-component-id: doc__Sidebar-sc-1ebgmlx-0 */
+.dhiOgq{background:#f5f7fa;position:fixed;top:60px;padding-top:10px;padding-bottom:38px;left:0px;width:24rem;height:calc(100vh - 60px);overflow-x:hidden;overflow-y:auto;-webkit-transition:left 0.5s ease;transition:left 0.5s ease;z-index:1;} @media (max-width:1600px){.dhiOgq{width:22%;}} @media (max-width:1224px){.dhiOgq{box-sizing:content-box;width:300px;left:-300px;box-shadow:none;}}
+/* sc-component-id: doc__PageWrapper-sc-1ebgmlx-1 */
+.ezTDOH{position:relative;margin-left:18%;background:#ffffff;} @media (max-width:1600px){.ezTDOH{margin-left:22%;}} @media (max-width:1224px){.ezTDOH{margin-left:0;}}
+/* sc-component-id: doc__Content-sc-1ebgmlx-2 */
+.dxAmsz{position:relative;padding:3rem 1.5rem;max-width:42rem;box-sizing:border-box;min-height:100vh;margin:0 auto;} .dxAmsz > table{width:calc(62% - 60px);margin-left:30px;} @media (max-width:1600px){.dxAmsz > table{width:calc(65% - 60px);}} @media (max-width:1224px){.dxAmsz > table{width:calc(60% - 60px);}} @media (max-width:980px){.dxAmsz > table{width:calc(100% - 60px);}} .dxAmsz blockquote{border-left:0.125em solid #dfe2e5;color:#6a737d;margin-bottom:1em;margin-left:30px;padding-top:0;padding-bottom:0;padding-left:1em;} .dxAmsz blockquote >:last-child{margin-bottom:0;} .dxAmsz blockquote >:first-child{margin-top:0;} .dxAmsz code:before,.dxAmsz code:after,.dxAmsz tt:before,.dxAmsz tt:after{-webkit-letter-spacing:-0.2em;-moz-letter-spacing:-0.2em;-ms-letter-spacing:-0.2em;letter-spacing:-0.2em;content:" ";} .dxAmsz .gatsby-highlight{margin-bottom:1.5rem;margin-right:0;} .dxAmsz a{color:inherit;-webkit-text-decoration:underline;text-decoration:underline;}
+/* sc-component-id: doc__ToggleButton-sc-1ebgmlx-3 */
+.cpbkbW{padding:8px 8px 8px 0;-webkit-transition:all 0.5s ease;transition:all 0.5s ease;display:none;position:fixed;top:80px;z-index:11;overflow:hidden;box-sizing:content-box;} .cpbkbW a{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:22px;height:38px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;border-top-right-radius:8px;border-bottom-right-radius:8px;box-shadow:none;border:1px solid #e4e4e4;cursor:pointer;outline:none;color:#58666e;background:#f5f7fa;box-sizing:inherit;} @media (max-width:1224px){.cpbkbW{display:block;left:0px;}}</style><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><style data-href="/tv_api_docs/styles.066c0b66e8d76b1f7e85.css">code[class*=language-],pre[class*=language-]{font-family:Consolas,Menlo,Monaco,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Courier New,Courier,monospace;font-size:14px;line-height:1.375;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;background:#faf8f5;color:#728fcb}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{text-shadow:none;background:#faf8f5}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#faf8f5}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog,.token.punctuation{color:#b6ad9a}.token.namespace{opacity:.7}.token.number,.token.operator,.token.tag{color:#063289}.token.function,.token.property{color:#b29762}.token.atrule-id,.token.selector,.token.tag-id{color:#2d2006}.token.attr-name,code.language-javascript{color:#896724}.language-css .token.string,.language-scss .token.string,.style .token.string,.token.atrule,.token.attr-value,.token.boolean,.token.control,.token.directive,.token.entity,.token.keyword,.token.regex,.token.statement,.token.string,.token.unit,.token.url,code.language-css,code.language-scss{color:#728fcb}.token.placeholder,.token.variable{color:#93abdc}.token.deleted{text-decoration:line-through}.token.inserted{border-bottom:1px dotted #2d2006;text-decoration:none}.token.italic{font-style:italic}.token.bold,.token.important{font-weight:700}.token.important{color:#896724}.token.entity{cursor:help}pre>code.highlight{outline:.4em solid #896724;outline-offset:.4em}.line-numbers .line-numbers-rows{border-right-color:#ece8de}.line-numbers-rows>span:before{color:#cdc4b1}.line-highlight{background:rgba(45,32,6,.2);background:-webkit-gradient(linear,left top,right top,color-stop(70%,rgba(45,32,6,.2)),to(rgba(45,32,6,0)));background:linear-gradient(90deg,rgba(45,32,6,.2) 70%,rgba(45,32,6,0))}h1{font-weight:400;letter-spacing:0}h5{margin:0;font-size:1rem;line-height:1.1}</style><link rel="shortcut icon" href="/tv_api_docs/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="manifest" href="/tv_api_docs/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/tv_api_docs/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><meta name="generator" content="Gatsby 2.8.6"/><link rel="apple-touch-icon" sizes="96x96" href="/tv_api_docs/icons/icon-96x96.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="144x144" href="/tv_api_docs/icons/icon-144x144.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="192x192" href="/tv_api_docs/icons/icon-192x192.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="256x256" href="/tv_api_docs/icons/icon-256x256.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="384x384" href="/tv_api_docs/icons/icon-384x384.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="512x512" href="/tv_api_docs/icons/icon-512x512.png?v=008654519ce705ac7bc44303a9014606"/><link as="script" rel="preload" href="/tv_api_docs/component---src-templates-doc-js-37b5bc7d81f7601470f7.js"/><link as="script" rel="preload" href="/tv_api_docs/app-0ee34b891012cd8565e9.js"/><link as="script" rel="preload" href="/tv_api_docs/7-e18cbeef0cb5b0a74dbb.js"/><link as="script" rel="preload" href="/tv_api_docs/0-e46f19177f43b8e188a3.js"/><link as="script" rel="preload" href="/tv_api_docs/styles-88913f24278864da827c.js"/><link as="script" rel="preload" href="/tv_api_docs/webpack-runtime-fd18c35bb4d13dde2b06.js"/><link as="fetch" rel="preload" href="/tv_api_docs/static/d/702/path---customer-apis-41-f-4d9-gmmSHXszYpBfLcYDHdNYngx8.json" crossorigin="use-credentials"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><header class="Header__Wrapper-wmnx12-0 fHLmSZ"><div class="Header__Main-wmnx12-1 gyUZAB"><a title="Trusting Social" class="Header__LogoLink-wmnx12-2 erLJuG" href="/tv_api_docs/"><img src="/tv_api_docs/static/logo-427c4224493b4952766d7f40205ccdf9.svg" alt="Trusting Social"/></a><div class="Header__SiteTitle-wmnx12-3 ifaBTi">Trust Vision API Documentation</div><label class="Header__VersionLabel-wmnx12-7 fgbQqG">v1.0.0</label><div class="Header__RightPanel-wmnx12-4 cwYqKg"></div></div></header><div class="Layout__Wrapper-sc-11262ql-0 jIcSUa"><div class="doc__ToggleButton-sc-1ebgmlx-3 cpbkbW"><a href="#"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="display:none" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="display:block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg></a></div><div class="doc__Sidebar-sc-1ebgmlx-0 dhiOgq"><div class="TOC__Menu-sc-1pqf0oz-0 NcbFr"><a level="1" title="Introduction" class="MenuItem__Link-z7n7m6-0 fmGQJn" href="/tv_api_docs/about_trusting_social/"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><span>Introduction</span></a><a level="2" title="About Trusting Social" class="MenuItem__Link-z7n7m6-0 bdEtUt" href="/tv_api_docs/about_trusting_social/#about-trusting-social"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>1. </strong><span>About Trusting Social</span></a><a level="2" title="About the Credit Insight Service" class="MenuItem__Link-z7n7m6-0 bdEtUt" href="/tv_api_docs/about_trusting_social/#about-the-credit-insight-service"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>2. </strong><span>About the Credit Insight Service</span></a><a level="2" title="Encryption Policy" class="MenuItem__Link-z7n7m6-0 bdEtUt" href="/tv_api_docs/about_trusting_social/#encryption-policy"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>3. </strong><span>Encryption Policy</span></a><a level="3" title="Encrypting the Credit Insight" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/about_trusting_social/#encrypting-the-credit-insight"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>3. </strong><span>Encrypting the Credit Insight</span></a><a level="1" title="Demo" class="MenuItem__Link-z7n7m6-0 fmGQJn" href="/tv_api_docs/demo/"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>3. </strong><span>Demo</span></a><a level="2" title="heading 1" class="MenuItem__Link-z7n7m6-0 bdEtUt" href="/tv_api_docs/demo/#heading-1"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>1. </strong><span>heading 1</span></a><a level="2" title="heading 2" class="MenuItem__Link-z7n7m6-0 bdEtUt" href="/tv_api_docs/demo/#heading-2"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>2. </strong><span>heading 2</span></a><a level="3" title="heading 2.1" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/demo/#heading-21"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>2. </strong><span>heading 2.1</span></a><a level="3" title="heading 2.2" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/demo/#heading-22"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>2. </strong><span>heading 2.2</span></a><a aria-current="page" level="1" title="Customer API" class="MenuItem__Link-z7n7m6-0 fmGQJn active" href="/tv_api_docs/customer_apis/"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>2. </strong><span>Customer API</span></a><a level="2" title="Authentication mechanism" class="MenuItem__Link-z7n7m6-0 bdEtUt" href="/tv_api_docs/customer_apis/#authentication-mechanism"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>1. </strong><span>Authentication mechanism</span></a><a level="2" title="Interaction Flows" class="MenuItem__Link-z7n7m6-0 bdEtUt" href="/tv_api_docs/customer_apis/#interaction-flows"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>2. </strong><span>Interaction Flows</span></a><a level="3" title="Flow 1: Compare faces between images" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/customer_apis/#flow-1-compare-faces-between-images"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>2. </strong><span>Flow 1: Compare faces between images</span></a><a level="3" title="Flow 2: Verify face liveness in images" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/customer_apis/#flow-2-verify-face-liveness-in-images"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>2. </strong><span>Flow 2: Verify face liveness in images</span></a><a level="2" title="List of APIs" class="MenuItem__Link-z7n7m6-0 bdEtUt" href="/tv_api_docs/customer_apis/#list-of-apis"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>3. </strong><span>List of APIs</span></a><a level="3" title="Upload Image" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/customer_apis/#upload-image"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>3. </strong><span>Upload Image</span></a><a level="3" title="Compare face between 2 images" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/customer_apis/#compare-face-between-2-images"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>3. </strong><span>Compare face between 2 images</span></a><a level="3" title="Get compare faces result" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/customer_apis/#get-compare-faces-result"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>3. </strong><span>Get compare faces result</span></a><a level="3" title="Verify face liveness" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/customer_apis/#verify-face-liveness"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>3. </strong><span>Verify face liveness</span></a><a level="3" title="Get verify face liveness result" class="MenuItem__Link-z7n7m6-0 jfTzjc" href="/tv_api_docs/customer_apis/#get-verify-face-liveness-result"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"></path></svg><strong>3. </strong><span>Get verify face liveness result</span></a></div></div><div class="doc__PageWrapper-sc-1ebgmlx-1 ezTDOH"><div class="doc__Content-sc-1ebgmlx-2 dxAmsz"><h2 id="authentication-mechanism"><a href="#authentication-mechanism" aria-label="authentication mechanism permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authentication mechanism</h2>
+<p>We use HMAC authentication which has been widely used by Amazon and Google to grant
+access to many of their APIs.</p>
+<p>How it works:</p>
+<ol>
+<li>
+<p>API access key is a pair:</p>
+<ul>
+<li>Access key ID: a unique identifier (UUID) of the API access key.</li>
+<li>Access key secret: a secret key that will be used to sign the requests.</li>
+</ul>
+<p>TrustVision team will create access key ID and access key secret for each customers before integration.</p>
+</li>
+<li>
+<p>Client signs a request:</p>
+<p>The client must generate a signature for each request, and send it in the
+<code class="language-text">Authorization</code> header. Following is pseudo code that illustrates the
+construction of the <code class="language-text">Authorization</code> request header:</p>
+<div class="gatsby-highlight" data-language="code"><pre style="counter-reset: linenumber NaN" class="language-code line-numbers"><code class="language-code">Authorization = &quot;TV&quot; + &quot; &quot; + AccessKeyID + &quot;:&quot; + Signature;
+
+Signature = Base64( HMAC-SHA256( AccessKeySecret, UTF-8-Encoding-Of( StringToSign ) ) );
+
+StringToSign = HTTP-Verb + &quot;\n&quot; + URI + &quot;\n&quot; + Timestamp;</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>Where:</p>
+<ul>
+<li>AccessKeyID and AccessKeySecret: are the access key provided by Trust Vision.</li>
+<li>HTTP-Verb: is either <code class="language-text">POST</code> <code class="language-text">GET</code> <code class="language-text">PUT</code> <code class="language-text">PATCH</code> <code class="language-text">DELETE</code>.</li>
+<li>URI: is the relative route path of the resource (exclude the domain).</li>
+<li>Timestamp: the time of the request in RFC3339 format. The client must also
+send this timestamp with the request in the <code class="language-text">X-TV-Timestamp</code> header.</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>
+<p>API Access key:</p>
+<ul>
+<li>Access key ID: <code class="language-text">62C1EB34-CB6A-41CE-AA5D-54C317954242</code></li>
+<li>Access key secret: <code class="language-text">42*Esi8e#1aWb55KQ3UnOe4JVcuNS2ns</code></li>
+</ul>
+</li>
+<li>
+<p>Request:</p>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="curl"><pre style="counter-reset: linenumber NaN" class="language-curl line-numbers"><code class="language-curl">curl -X POST \
+https://tv-testing.trustingsocial.com/tv_api/v1/images \
+-H &#39;Authorization: TV 62C1EB34-CB6A-41CE-AA5D-54C317954242:7R2t1HSzE40HN51ydeNJ5f3NLIEyWp1dZIt3BUxE51U=&#39; \
+-H &#39;X-TV-Timestamp: 2019-04-21T18:00:15+07:00&#39; \
+-H &#39;content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW&#39; \
+-F file=@/images/portrait.jpg</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<ul>
+<li>String to sign:</li>
+</ul>
+<div class="gatsby-highlight" data-language="text"><pre style="counter-reset: linenumber NaN" class="language-text line-numbers"><code class="language-text">POST\n/v1/images\n2019-04-21T18:00:15+07:00</code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+</li>
+<li>
+<p>Server verifies the request signature:</p>
+<p>To verify the signature, the server first takes the request timestamp from
+<code class="language-text">X-TV-Timestamp</code> header, compares it with current timestamp of the server.
+If the difference between 2 timestamps is more than 15 minutes, it will
+reject the request and return <code class="language-text">RequestTimeTooSkewed</code> error to the client.
+The intention of this restriction is to limit the possibility that
+intercepted requests could be replayed by an adversary.</p>
+<p>If the timestamp is within the limit, the server will then parse value from
+<code class="language-text">Authorization</code> header to get <code class="language-text">AccessKeyID</code> and <code class="language-text">Signature</code> (separated by <code class="language-text">:</code>).
+It looks up <code class="language-text">AccessKeyID</code> to get the corresponding <code class="language-text">AccessKeySecret</code>.</p>
+<p>After that, the server uses the request timestamp to generate the string to
+sign, and use the <code class="language-text">AccessKeySecret</code> to creates the signature with the same
+method as described before.</p>
+<p>Finally, the request is authorized if the generated signature matches the
+request signature.</p>
+</li>
+</ol>
+<h2 id="interaction-flows"><a href="#interaction-flows" aria-label="interaction flows permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interaction Flows</h2>
+<h3 id="flow-1-compare-faces-between-images"><a href="#flow-1-compare-faces-between-images" aria-label="flow 1 compare faces between images permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flow 1: Compare faces between images</h3>
+<p><a href="https://swimlanes.io/d/bG0Nf-0xm"><img src="https://static.swimlanes.io/daa882c11dff1ba9a48534d037ffee7d.png" alt="Flow 1: Compare faces between 2 images"></a></p>
+<h3 id="flow-2-verify-face-liveness-in-images"><a href="#flow-2-verify-face-liveness-in-images" aria-label="flow 2 verify face liveness in images permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Flow 2: Verify face liveness in images</h3>
+<p>Note that we're going towards no-gesture liveness verification, however we can
+also support gesture based liveness verification, so in this flow, we allow
+clients to send at most 3 images with optional gestures (more than 3 can create
+bad user experience, we're aiming for using only 1).</p>
+<p><a href="https://swimlanes.io/d/LG0aS5vDZ"><img src="https://static.swimlanes.io/cc1af44fa4d0860755893ea35d3a7c81.png" alt="Flow 2: Verify face liveness in images"></a></p>
+<h2 id="list-of-apis"><a href="#list-of-apis" aria-label="list of apis permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>List of APIs</h2>
+<h3 id="upload-image"><a href="#upload-image" aria-label="upload image permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upload Image</h3>
+<ol>
+<li>
+<p>Request</p>
+<p>Client should call this API:</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>URL</th>
+<th>content-type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code class="language-text">/v1/images</code></td>
+<td><code class="language-text">multipart/form-data</code></td>
+</tr>
+</tbody>
+</table>
+<p>With following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>field</th>
+<th>type</th>
+<th>required</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">file</code></td>
+<td>file</td>
+<td>yes</td>
+<td>the image file to be uploaded</td>
+</tr>
+<tr>
+<td><code class="language-text">label</code></td>
+<td>string</td>
+<td>no</td>
+<td>label of the image</td>
+</tr>
+<tr>
+<td><code class="language-text">metadata</code></td>
+<td>dictionary</td>
+<td>no</td>
+<td>any key-value metadata to save with the image, both key and value should be string</td>
+</tr>
+</tbody>
+</table>
+<p>Image label should be one of following values:</p>
+<table>
+<thead>
+<tr>
+<th>label</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">portrait</code></td>
+<td>the portrait photo</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.in.aadhaar.front</code></td>
+<td>the front side of India Aadhaar card</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.in.aadhaar.back</code></td>
+<td>the back side of India Aadhaar card</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.in.pan.front</code></td>
+<td>the front side of India PAN card</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.in.pan.back</code></td>
+<td>the back side of India PAN card</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.in.voter.front</code></td>
+<td>the front side of India Voter card</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.in.passport.front</code></td>
+<td>the front side of India passport</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.vn.cmnd_old.front</code></td>
+<td>the front side of Vietnam national ID old version (Chứng minh nhân dân cũ)</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.vn.cmnd_old.back</code></td>
+<td>the back side of Vietnam national ID old version (Chứng minh nhân dân cũ)</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.vn.cmnd_new.front</code></td>
+<td>the front side of Vietnam national ID new version (Chứng minh nhân dân mới)</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.vn.cmnd_new.back</code></td>
+<td>the back side of Vietnam national ID new version (Chứng minh nhân dân mới)</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.vn.cccd.front</code></td>
+<td>the front side of Vietnam national ID latest version (Căn cước công dân)</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.vn.cccd.back</code></td>
+<td>the back side of Vietnam national ID latest version (Căn cước công dân)</td>
+</tr>
+<tr>
+<td><code class="language-text">id_card.vn.passport.front</code></td>
+<td>the front side of Vietnam passport</td>
+</tr>
+</tbody>
+</table>
+<p>Authentication mechanism is described in <a href="#authentication-mechanism">Authentication</a>.</p>
+</li>
+<li>
+<p>Response</p>
+<p>The response will be a JSON with following format:</p>
+<div class="gatsby-highlight" data-language="go"><pre style="counter-reset: linenumber NaN" class="language-go line-numbers"><code class="language-go"><span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"image_id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// ID of the uploaded image in StoreDB</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">"errors"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"detail"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"field"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// optional, which parameter is invalid.</span>
+                <span class="token operator">...</span> <span class="token comment">// any other information that can be useful for client</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span> <span class="token comment">// other errors</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>In case of success, the HTTP status code will be 200, and the <code class="language-text">data</code> will be
+an object containing following fields:</p>
+<table>
+<thead>
+<tr>
+<th>field</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">image_id</code></td>
+<td>string</td>
+<td>ID of the uploaded image (UUID)</td>
+</tr>
+</tbody>
+</table>
+<p>In case of error, the <code class="language-text">data</code> will be empty, and server sends following HTTP
+status code and error information:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP code</th>
+<th>error code</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td><code class="language-text">invalid_parameter_exception</code></td>
+<td>Input parameter violates a constraint.</td>
+</tr>
+<tr>
+<td>401</td>
+<td><code class="language-text">access_denied_exception</code></td>
+<td>You are not authorized to perform the action.</td>
+</tr>
+<tr>
+<td>413</td>
+<td><code class="language-text">image_too_large_exception</code></td>
+<td>The input image size exceeds the allowed limit (15MB).</td>
+</tr>
+<tr>
+<td>415</td>
+<td><code class="language-text">invalid_image_format_exception</code></td>
+<td>The provided image format is not supported (JPG/PNG)</td>
+</tr>
+<tr>
+<td>429</td>
+<td><code class="language-text">rate_limit_exception</code></td>
+<td>The number of requests exceeded your throughput limit.</td>
+</tr>
+<tr>
+<td>500</td>
+<td><code class="language-text">internal_server_error</code></td>
+<td>Some unexpected error occurs while processing the request</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="compare-face-between-2-images"><a href="#compare-face-between-2-images" aria-label="compare face between 2 images permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Compare face between 2 images</h3>
+<ol>
+<li>
+<p>Request</p>
+<p>Client should call this API:</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>URL</th>
+<th>content-type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code class="language-text">/v1/compare_faces</code></td>
+<td><code class="language-text">application/json</code></td>
+</tr>
+</tbody>
+</table>
+<p>Body:</p>
+<div class="gatsby-highlight" data-language="go"><pre style="counter-reset: linenumber NaN" class="language-go line-numbers"><code class="language-go"><span class="token punctuation">{</span>
+    <span class="token string">"image1_id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    <span class="token string">"image2_id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
+<p>Where:</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>type</th>
+<th>required</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">image1_id</code></td>
+<td>string</td>
+<td>yes</td>
+<td>ID of image1 in Store DB</td>
+</tr>
+<tr>
+<td><code class="language-text">image2_id</code></td>
+<td>string</td>
+<td>yes</td>
+<td>ID of image2 in Store DB</td>
+</tr>
+</tbody>
+</table>
+<p>Authentication mechanism is described in <a href="#authentication-mechanism">Authentication</a>.</p>
+</li>
+<li>
+<p>Response</p>
+<p>The response will be a JSON with following format:</p>
+<div class="gatsby-highlight" data-language="go"><pre style="counter-reset: linenumber NaN" class="language-go line-numbers"><code class="language-go"><span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"request_id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// "processing", "success" or "failure"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">"errors"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"detail"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"field"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// optional, which parameter is invalid.</span>
+                <span class="token operator">...</span> <span class="token comment">// any other information that can be useful for client</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span> <span class="token comment">// other errors</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>In case of success, the HTTP status code will be 200, and the <code class="language-text">data</code> will be
+an object containing following fields:</p>
+<table>
+<thead>
+<tr>
+<th>field</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">request_id</code></td>
+<td>string</td>
+<td>ID of the request (UUID)</td>
+</tr>
+</tbody>
+</table>
+<p>In case of error, the <code class="language-text">data</code> will be empty, and server sends following HTTP
+status code and error information:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP code</th>
+<th>error code</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td><code class="language-text">invalid_parameter_exception</code></td>
+<td>Input parameter violates a constraint.</td>
+</tr>
+<tr>
+<td>401</td>
+<td><code class="language-text">access_denied_exception</code></td>
+<td>You are not authorized to perform the action.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code class="language-text">image_not_found_exception</code></td>
+<td>The image ID is not found in Store DB.</td>
+</tr>
+<tr>
+<td>415</td>
+<td><code class="language-text">invalid_image_format_exception</code></td>
+<td>The provided image format is not supported (JPG/PNG)</td>
+</tr>
+<tr>
+<td>429</td>
+<td><code class="language-text">rate_limit_exception</code></td>
+<td>The number of requests exceeded your throughput limit.</td>
+</tr>
+<tr>
+<td>500</td>
+<td><code class="language-text">internal_server_error</code></td>
+<td>Some unexpected error occurs while processing the request</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="get-compare-faces-result"><a href="#get-compare-faces-result" aria-label="get compare faces result permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get compare faces result</h3>
+<ol>
+<li>
+<p>Request</p>
+<p>Client should call this API:</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>URL</th>
+<th>content-type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code class="language-text">/v1/compare_faces/{request_id}</code></td>
+<td><code class="language-text">application/json</code></td>
+</tr>
+</tbody>
+</table>
+<p>Where <code class="language-text">request_id</code> is the ID of the request returned in previous API call.</p>
+</li>
+<li>
+<p>Response</p>
+<p>The response will be a JSON body with following format:</p>
+<div class="gatsby-highlight" data-language="go"><pre style="counter-reset: linenumber NaN" class="language-go line-numbers"><code class="language-go"><span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// "processing", "success" or "failure"</span>
+        <span class="token string">"image1"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"transformed_image_id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token comment">// optional, just in case the image is transformed</span>
+            <span class="token string">"faces"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// id of the face in image1</span>
+                    <span class="token string">"bounding_box"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        <span class="token string">"top"</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token comment">// the top edge of the box</span>
+                        <span class="token string">"right"</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token comment">// the right edge of the box</span>
+                        <span class="token string">"bottom"</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token comment">// the bottom edge of the box</span>
+                        <span class="token string">"left"</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token comment">// the left edge of the box</span>
+                        <span class="token string">"angle"</span><span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token comment">// the angle at which the box is rotated</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token operator">...</span> <span class="token comment">// other faces in image1</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">"image2"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"transformed_image_id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token comment">// optional, just in case the image is transformed</span>
+            <span class="token string">"faces"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// id of the face in image2</span>
+                    <span class="token string">"bounding_box"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                        <span class="token string">"top"</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token comment">// the top edge of the box</span>
+                        <span class="token string">"right"</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token comment">// the right edge of the box</span>
+                        <span class="token string">"bottom"</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token comment">// the bottom edge of the box</span>
+                        <span class="token string">"left"</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token comment">// the left edge of the box</span>
+                        <span class="token string">"angle"</span><span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token comment">// the angle at which the box is rotated</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token operator">...</span> <span class="token comment">// other faces in image2</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">"compare_faces"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">"face1_id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// id of the face in image1</span>
+                <span class="token string">"face2_id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// id of the face in image2</span>
+                <span class="token string">"score"</span><span class="token punctuation">:</span> float<span class="token punctuation">,</span> <span class="token comment">// how likely that face1 and face2 are matched (0-1)</span>
+                <span class="token string">"result"</span><span class="token punctuation">:</span> <span class="token builtin">string</span> <span class="token comment">// "matched", "unmatched", "unsure"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token operator">...</span> <span class="token comment">// other pair of faces in image1 and image2</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token string">"errors"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"detail"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"field"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// optional, which parameter is invalid.</span>
+                <span class="token operator">...</span> <span class="token comment">// any other information that can be useful for client</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span> <span class="token comment">// other errors</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>In case the request is still being processed, the HTTP status code will be <code class="language-text">200</code>,
+and the <code class="language-text">data.status</code> is <code class="language-text">&quot;processing&quot;</code>:</p>
+<p>In case the request processing has been finished, the HTTP status code will be
+<code class="language-text">200</code>, and the <code class="language-text">data.status</code> is either <code class="language-text">&quot;success&quot;</code> or <code class="language-text">&quot;failure&quot;</code> depending on
+whether the request has been successfully processed or not.</p>
+<p>If the <code class="language-text">data.status</code> is <code class="language-text">&quot;failure&quot;</code>, the <code class="language-text">&quot;errors&quot;</code> field will tell you why it
+failed.</p>
+<table>
+<thead>
+<tr>
+<th>error code</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">image_too_blur</code></td>
+<td>the input image is too blur</td>
+</tr>
+<tr>
+<td><code class="language-text">image_too_dark</code></td>
+<td>the input image is too dark</td>
+</tr>
+<tr>
+<td><code class="language-text">image_too_bright</code></td>
+<td>the input image is too bright (glare)</td>
+</tr>
+<tr>
+<td><code class="language-text">image_has_no_faces</code></td>
+<td>the input image has no faces</td>
+</tr>
+</tbody>
+</table>
+<p>In case of any other errors, the <code class="language-text">data</code> field will be empty, and the server
+sends one of following HTTP status code with error code:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP code</th>
+<th>error code</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">400</code></td>
+<td><code class="language-text">invalid_parameter_exception</code></td>
+<td>Input parameter violates a constraint.</td>
+</tr>
+<tr>
+<td><code class="language-text">401</code></td>
+<td><code class="language-text">access_denied_exception</code></td>
+<td>You are not authorized to perform the action.</td>
+</tr>
+<tr>
+<td><code class="language-text">404</code></td>
+<td><code class="language-text">request_not_found_exception</code></td>
+<td>The request ID is not found in Memory Cache and Store DB.</td>
+</tr>
+<tr>
+<td><code class="language-text">429</code></td>
+<td><code class="language-text">rate_limit_exception</code></td>
+<td>The number of requests exceeded your throughput limit.</td>
+</tr>
+<tr>
+<td><code class="language-text">500</code></td>
+<td><code class="language-text">internal_server_error</code></td>
+<td>Some unexpected error occurs while processing the request</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="verify-face-liveness"><a href="#verify-face-liveness" aria-label="verify face liveness permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Verify face liveness</h3>
+<ol>
+<li>
+<p>Request</p>
+<p>Client should call this API:</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>URL</th>
+<th>content-type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code class="language-text">/v1/verify_face_liveness</code></td>
+<td><code class="language-text">application/json</code></td>
+</tr>
+</tbody>
+</table>
+<p>With following form-data fields:</p>
+<table>
+<thead>
+<tr>
+<th>field</th>
+<th>type</th>
+<th>required</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">image_ids</code></td>
+<td>[]string</td>
+<td>yes</td>
+<td>array of image IDs in Store DB</td>
+</tr>
+<tr>
+<td><code class="language-text">gestures</code></td>
+<td>[]string</td>
+<td>no</td>
+<td>array of expected gestures of the face in each image</td>
+</tr>
+</tbody>
+</table>
+<p>For now, we support using at most 3 images (this can be changed in the
+future).</p>
+<p>The length of the <code class="language-text">gestures</code> array (if provided) should be equal to the
+length of <code class="language-text">image_ids</code>.</p>
+<p>Authentication mechanism is described in <a href="#authentication-mechanism">Authentication</a>.</p>
+</li>
+<li>
+<p>Response</p>
+<p>The response will be a JSON with following format:</p>
+<div class="gatsby-highlight" data-language="go"><pre style="counter-reset: linenumber NaN" class="language-go line-numbers"><code class="language-go"><span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"request_id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">"errors"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"detail"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"field"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// optional, which parameter is invalid.</span>
+                <span class="token operator">...</span> <span class="token comment">// any other information that can be useful for client</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span> <span class="token comment">// other errors</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>In case of success, the HTTP status code will be 200, and the <code class="language-text">data</code> will be
+an object containing following fields:</p>
+<table>
+<thead>
+<tr>
+<th>field</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">request_id</code></td>
+<td>string</td>
+<td>ID of the request (UUID)</td>
+</tr>
+</tbody>
+</table>
+<p>In case of error, the <code class="language-text">data</code> will be empty, and server sends following HTTP
+status code and error information:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP code</th>
+<th>error code</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>400</td>
+<td><code class="language-text">invalid_parameter_exception</code></td>
+<td>Input parameter violates a constraint.</td>
+</tr>
+<tr>
+<td>401</td>
+<td><code class="language-text">access_denied_exception</code></td>
+<td>You are not authorized to perform the action.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code class="language-text">image_not_found_exception</code></td>
+<td>The image ID is not found in Store DB.</td>
+</tr>
+<tr>
+<td>415</td>
+<td><code class="language-text">invalid_image_format_exception</code></td>
+<td>The provided image format is not supported (JPG/PNG)</td>
+</tr>
+<tr>
+<td>429</td>
+<td><code class="language-text">rate_limit_exception</code></td>
+<td>The number of requests exceeded your throughput limit.</td>
+</tr>
+<tr>
+<td>500</td>
+<td><code class="language-text">internal_server_error</code></td>
+<td>Some unexpected error occurs while processing the request</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="get-verify-face-liveness-result"><a href="#get-verify-face-liveness-result" aria-label="get verify face liveness result permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get verify face liveness result</h3>
+<ol>
+<li>
+<p>Request</p>
+<p>Client should call this API:</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>URL</th>
+<th>content-type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code class="language-text">/v1/verify_face_liveness/{request_id}</code></td>
+<td><code class="language-text">application/json</code></td>
+</tr>
+</tbody>
+</table>
+<p>Where <code class="language-text">request_id</code> is the ID of the request returned in previous API call.</p>
+</li>
+<li>
+<p>Response</p>
+<p>The response will be a JSON body with following format:</p>
+<div class="gatsby-highlight" data-language="go"><pre style="counter-reset: linenumber NaN" class="language-go line-numbers"><code class="language-go"><span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// "processing", "success" or "failure"</span>
+        <span class="token string">"is_live"</span><span class="token punctuation">:</span> <span class="token builtin">bool</span><span class="token punctuation">,</span> <span class="token comment">// the face is live or not</span>
+        <span class="token string">"score"</span><span class="token punctuation">:</span> float <span class="token comment">// how likely that the face is live (0-1)</span>
+        <span class="token string">"images"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// ID of the image</span>
+                <span class="token string">"is_live"</span><span class="token punctuation">:</span> <span class="token builtin">bool</span><span class="token punctuation">,</span> <span class="token comment">// liveness result of this image only</span>
+                <span class="token string">"score"</span><span class="token punctuation">:</span> float <span class="token comment">// how likely that the face is live (0-1)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token operator">...</span> <span class="token comment">// up to 3 images</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">"errors"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+            <span class="token string">"detail"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"field"</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token comment">// optional, which parameter is invalid.</span>
+                <span class="token operator">...</span> <span class="token comment">// any other information that can be useful for client</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span> <span class="token comment">// other errors</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<p>In case the request is still being processed, the HTTP status code will be
+<code class="language-text">200</code>, and the <code class="language-text">data.status</code> is <code class="language-text">&quot;processing&quot;</code>:</p>
+<p>In case the request processing has been finished, the HTTP status code will
+be <code class="language-text">200</code>, and the <code class="language-text">data.status</code> is either <code class="language-text">&quot;success&quot;</code> or <code class="language-text">&quot;failure&quot;</code>,
+depending on whether the request has been successfully processed or not.</p>
+<p>If the <code class="language-text">data.status</code> is <code class="language-text">&quot;failure&quot;</code>, the <code class="language-text">&quot;errors&quot;</code> field will tell you why
+it failed.</p>
+<table>
+<thead>
+<tr>
+<th>error code</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">image_too_blur</code></td>
+<td>the input image is too blur</td>
+</tr>
+<tr>
+<td><code class="language-text">image_too_dark</code></td>
+<td>the input image is too dark</td>
+</tr>
+<tr>
+<td><code class="language-text">image_too_bright</code></td>
+<td>the input image is too bright (glare)</td>
+</tr>
+<tr>
+<td><code class="language-text">image_has_no_faces</code></td>
+<td>the input image has no faces</td>
+</tr>
+</tbody>
+</table>
+<p>In case of any other errors, the <code class="language-text">data</code> field will be empty, and the server
+sends one of following HTTP status code with error code:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP code</th>
+<th>error code</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">400</code></td>
+<td><code class="language-text">invalid_parameter_exception</code></td>
+<td>Input parameter violates a constraint.</td>
+</tr>
+<tr>
+<td><code class="language-text">401</code></td>
+<td><code class="language-text">access_denied_exception</code></td>
+<td>You are not authorized to perform the action.</td>
+</tr>
+<tr>
+<td><code class="language-text">404</code></td>
+<td><code class="language-text">request_not_found_exception</code></td>
+<td>The request ID is not found in Memory Cache and Store DB.</td>
+</tr>
+<tr>
+<td><code class="language-text">429</code></td>
+<td><code class="language-text">rate_limit_exception</code></td>
+<td>The number of requests exceeded your throughput limit.</td>
+</tr>
+<tr>
+<td><code class="language-text">500</code></td>
+<td><code class="language-text">internal_server_error</code></td>
+<td>Some unexpected error occurs while processing the request</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-doc-js","jsonName":"customer-apis-41f","path":"/customer_apis/"};window.dataPath="702/path---customer-apis-41-f-4d9-gmmSHXszYpBfLcYDHdNYngx8";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-0ee34b891012cd8565e9.js"],"component---src-templates-doc-js":["/component---src-templates-doc-js-37b5bc7d81f7601470f7.js"],"component---src-pages-404-js":["/component---src-pages-404-js-4360043b8cff573f6402.js"],"pages-manifest":["/pages-manifest-7e0a43075c6defb0c294.js"]};/*]]>*/</script><script src="/tv_api_docs/webpack-runtime-fd18c35bb4d13dde2b06.js" async=""></script><script src="/tv_api_docs/styles-88913f24278864da827c.js" async=""></script><script src="/tv_api_docs/0-e46f19177f43b8e188a3.js" async=""></script><script src="/tv_api_docs/7-e18cbeef0cb5b0a74dbb.js" async=""></script><script src="/tv_api_docs/app-0ee34b891012cd8565e9.js" async=""></script><script src="/tv_api_docs/component---src-templates-doc-js-37b5bc7d81f7601470f7.js" async=""></script></body></html>
