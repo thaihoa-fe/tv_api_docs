@@ -1,81 +1,81 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { GoTriangleRight } from 'react-icons/go';
-import { MdBookmark, MdBookmarkBorder } from 'react-icons/md';
+import styled, { css } from 'styled-components';
+import { MdBookmarkBorder } from 'react-icons/md';
+import { Link as GatsbyLink } from 'gatsby';
 
-const Link = styled.li`
+const topLinkStyles = css`
+  margin-top: 12px;
+  span {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+  }
+`;
+
+const Link = styled(GatsbyLink)`
   display: block;
-  > a {
+  height: 38px;
+  line-height: 38px;
+  width: 100%;
+  align-items: center;
+  color: ${props => (props.selected ? '#0099e5' : '#4c555a')};
+  background: ${props => (props.selected ? 'rgba(219, 239, 249, 0.6)' : 'transparent')};
+  font-weight: ${props => (props.selected ? '600' : '500')};
+  text-decoration: none;
+  padding: ${props => `0 8px 0 ${props.level * 15}px`};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  ${props => (props.level === 1 ? topLinkStyles : null)}
+  span {
     height: 28px;
     line-height: 28px;
     text-align: left;
-    color: #4c555a;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    svg {
-      margin-right: 6px;
-    }
-    &:hover {
-      color: #0099e5;
-    }
+  }
+  svg {
+    display: ${props => (props.level === 3 ? 'inline' : 'none')};
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  strong {
+    font-size: 14px;
+    display: ${props => (props.level === 2 ? 'inline' : 'none')};
+    margin-right: 8px;
+  }
+  &:hover {
+    color: #0099e5;
+    background: rgba(219, 239, 249, 0.6);
   }
 `;
 
-const LevelOneIcon = styled(GoTriangleRight)`
-  transform: rotate(${props => (props.isOpen ? '90deg' : '0deg')});
-`;
-
-const Icon = ({ level, isOpen }) => {
-  if (level === 1) {
-    return <LevelOneIcon isOpen={isOpen} />;
-  }
-  if (level === 3) {
-    return isOpen ? <MdBookmark /> : <MdBookmarkBorder />;
-  }
-  return null;
-};
-
-Icon.propTypes = {
-  level: PropTypes.number.isRequired,
-  isOpen: PropTypes.bool,
-};
-
-Icon.defaultProps = {
-  isOpen: false,
-};
-
-function MenuItem({ children, level, onClick, text, path, isOpen }) {
+function MenuItem({ index, level, onClick, text, path, selected }) {
   return (
-    <Link level={level}>
-      <a
-        href={`#${path}`}
-        onClick={evt => {
-          onClick(evt, path);
-        }}
-        title={text}
-      >
-        <Icon level={level} isOpen={isOpen} />
-        <span>{text}</span>
-      </a>
-      {children}
+    <Link
+      level={level}
+      to={path}
+      title={text}
+      selected={selected}
+    >
+      <MdBookmarkBorder />
+      {index > 0 && <strong>{`${index}. `}</strong>}
+      <span>{text}</span>
     </Link>
   );
 }
 
 MenuItem.propTypes = {
+  index: PropTypes.number,
   onClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   level: PropTypes.number.isRequired,
-  children: PropTypes.node,
-  isOpen: PropTypes.bool,
+  selected: PropTypes.bool,
 };
 
 MenuItem.defaultProps = {
-  isOpen: false,
-  children: null,
+  selected: false,
+  index: null,
 };
 
 export default MenuItem;

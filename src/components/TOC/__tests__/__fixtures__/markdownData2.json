@@ -1,0 +1,315 @@
+{
+    "rawMarkdownBody": "\n## heading 1\n\n- ok\n- fine\n- yes\n- no\n\n## heading 2\nLorem\n\n### heading 2.1\n### heading 2.2\n\n",
+    "frontmatter": {
+      "title": "Demo"
+    },
+    "fields": {
+      "slug": "/demo/"
+    },
+    "htmlAst": {
+      "type": "root",
+      "children": [
+        {
+          "type": "element",
+          "tagName": "h2",
+          "properties": {
+            "id": "heading-1"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tagName": "a",
+              "properties": {
+                "href": "#heading-1",
+                "ariaLabel": "heading 1 permalink",
+                "className": [
+                  "anchor"
+                ]
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "svg",
+                  "properties": {
+                    "ariaHidden": "true",
+                    "focusable": "false",
+                    "height": "16",
+                    "version": "1.1",
+                    "viewBox": "0 0 16 16",
+                    "width": "16"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "path",
+                      "properties": {
+                        "fillRule": "evenodd",
+                        "d": "M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "heading 1"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "\n"
+        },
+        {
+          "type": "element",
+          "tagName": "ul",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "ok"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "fine"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "yes"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "no"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "\n"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "\n"
+        },
+        {
+          "type": "element",
+          "tagName": "h2",
+          "properties": {
+            "id": "heading-2"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tagName": "a",
+              "properties": {
+                "href": "#heading-2",
+                "ariaLabel": "heading 2 permalink",
+                "className": [
+                  "anchor"
+                ]
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "svg",
+                  "properties": {
+                    "ariaHidden": "true",
+                    "focusable": "false",
+                    "height": "16",
+                    "version": "1.1",
+                    "viewBox": "0 0 16 16",
+                    "width": "16"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "path",
+                      "properties": {
+                        "fillRule": "evenodd",
+                        "d": "M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "heading 2"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "\n"
+        },
+        {
+          "type": "element",
+          "tagName": "p",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "Lorem"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "\n"
+        },
+        {
+          "type": "element",
+          "tagName": "h3",
+          "properties": {
+            "id": "heading-21"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tagName": "a",
+              "properties": {
+                "href": "#heading-21",
+                "ariaLabel": "heading 21 permalink",
+                "className": [
+                  "anchor"
+                ]
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "svg",
+                  "properties": {
+                    "ariaHidden": "true",
+                    "focusable": "false",
+                    "height": "16",
+                    "version": "1.1",
+                    "viewBox": "0 0 16 16",
+                    "width": "16"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "path",
+                      "properties": {
+                        "fillRule": "evenodd",
+                        "d": "M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "heading 2.1"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "\n"
+        },
+        {
+          "type": "element",
+          "tagName": "h3",
+          "properties": {
+            "id": "heading-22"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tagName": "a",
+              "properties": {
+                "href": "#heading-22",
+                "ariaLabel": "heading 22 permalink",
+                "className": [
+                  "anchor"
+                ]
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "svg",
+                  "properties": {
+                    "ariaHidden": "true",
+                    "focusable": "false",
+                    "height": "16",
+                    "version": "1.1",
+                    "viewBox": "0 0 16 16",
+                    "width": "16"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "path",
+                      "properties": {
+                        "fillRule": "evenodd",
+                        "d": "M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "heading 2.2"
+            }
+          ]
+        }
+      ],
+      "data": {
+        "quirksMode": false
+      }
+    }
+  }

@@ -2,19 +2,55 @@ const proxy = require('http-proxy-middleware');
 
 module.exports = {
   siteMetadata: {
-    title: 'Credit Insight Service API Documentation',
-    description: 'Credit Insight Service API Documentation',
+    title: 'Trust Vision API Documentation',
+    description: 'Trust Vision API Documentation',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
         path: `${__dirname}/src/assets`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'markdown',
+        path: `${__dirname}/contents`,
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        // CommonMark mode (default: true)
+        commonmark: true,
+        // Footnotes mode (default: true)
+        footnotes: true,
+        // Pedantic mode (default: true)
+        pedantic: true,
+        // GitHub Flavored Markdown mode (default: true)
+        gfm: true,
+        // Plugins configs
+        plugins: [
+          'gatsby-remark-autolink-headers',
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+            },
+          },
+          'gatsby-remark-attr',
+          'gatsby-remark-reading-time'
+        ],
       },
     },
     {

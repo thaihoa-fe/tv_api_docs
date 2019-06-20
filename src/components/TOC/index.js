@@ -1,86 +1,79 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import { useStaticQuery, graphql } from 'gatsby';
+import { normalizeHeading } from './utils';
 import MenuItem from './MenuItem';
 
-const StyledUL = styled.ul`
-  margin: 0;
-  padding: 0 8px;
-  list-style: none;
+const Menu = styled.div`
+  width: 100%;
+  font-size: 14px;
 `;
 
-const StyledOL = styled.ol`
-  margin: 0;
-  padding: 0 8px;
-  list-style: none;
-  counter-reset: c-counter;
-  > li {
-    display: list-item;
-    position: relative;
-    counter-increment: c-counter;
-    &::before {
-      position: absolute;
-      top: 3px;
-      left: 20px;
-      content: counter(c-counter) '.';
-      font-family: Arial;
-      font-size: 15px;
-      color: #4c555a;
+export function drawListItem(categories, onClick) {
+  let counter = 0;
+  let currentDepth;
+
+  return categories.map(c => {
+    if (currentDepth !== 2 && c.depth === 2) {
+      counter = 0;
+      currentDepth = 2;
     }
-    &:hover::before {
-      color: #0099e5;
+    if (currentDepth === 2) {
+      if (c.depth === 2) {
+        counter++;
+      } else if (c.depth === 1) {
+        currentDepth = null;
+      }
     }
 
-    a {
-      margin-left: 42px;
-    }
-  }
-`;
+    const actualPath = c.depth === 1 ? c.path : `${c.path}#${c.id}`;
 
-const Menu = ({ level, children }) => {
-  if (level === 2) {
-    return <StyledOL>{children}</StyledOL>;
-  }
-  return <StyledUL>{children}</StyledUL>;
-};
+    return (
+      <MenuItem
+        key={c.id}
+        path={actualPath}
+        index={counter}
+        text={c.value}
+        level={c.depth}
+        selected={c.selected}
+        onClick={onClick}
+      />
+    );
+  });
+}
 
-Menu.propTypes = {
-  level: PropTypes.number.isRequired,
-  children: PropTypes.node.isRequired,
-};
-
-function drawListItem(categories, onClick, level) {
-  return (
-    <Menu level={level}>
-      {categories.map(c => {
-        if (c.children && c.children.length) {
-          return (
-            <MenuItem key={c.path} text={c.text} isOpen={c.isOpen} level={level} onClick={onClick}>
-              {drawListItem(c.children, onClick, level + 1, true)}
-            </MenuItem>
-          );
+function TOC({ onClick }) {
+  const { allMarkdownRemark } = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+            htmlAst
+          }
         }
+      }
+    }
+  `);
 
-        return (
-          <MenuItem key={c.path} text={c.text} isOpen={c.isOpen} level={level} onClick={onClick} />
-        );
-      })}
-    </Menu>
-  );
+  const categories = allMarkdownRemark.edges.reduce((result, edge) => {
+    return result.concat(normalizeHeading(edge.node));
+  }, []);
+  return <Menu>{drawListItem(categories, onClick)}</Menu>;
 }
 
-function Sidebar({ categories, onClick }) {
-  return drawListItem(categories, onClick, 1);
-}
-
-Sidebar.propTypes = {
-  categories: PropTypes.arrayOf({}),
+TOC.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-Sidebar.defaultProps = {
-  categories: [],
+TOC.defaultProps = {
+  onClick: () => {},
 };
 
-export default Sidebar;
+export default TOC;
