@@ -5,13 +5,11 @@ import styled from 'styled-components';
 import Textfield from '@atlaskit/textfield';
 import {
   FiSearch as MagnifyingIcon,
-  FiPower as LogoutIcon,
   FiExternalLink as ExternalIcon,
 } from 'react-icons/fi';
 
 import GlobalStyle from './GlobalStyle';
 import logoIcon from '../../assets/logo.svg';
-import { clearAuthToken } from '../../utils/auth';
 
 export const HEIGHT = 60;
 
@@ -95,13 +93,6 @@ const VersionLabel = styled.label`
 `;
 
 function Header({ siteTitle, docsVersion, hasDocLink, hasTextSearching, hasAPIExplorerLink }) {
-  const handleLogout = evt => {
-    evt.preventDefault();
-    clearAuthToken();
-    navigate('/');
-    return null;
-  };
-
   return (
     <Wrapper>
       <GlobalStyle bodyBgColor="#f5f7fa" />
