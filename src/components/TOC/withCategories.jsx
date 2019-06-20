@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { normalizeHeading } from './utils';
 
@@ -21,11 +21,16 @@ export default function withCategories(WrapedComponent) {
                 }
             }
         `);
-        const categories = allMarkdownRemark.edges
-            .reduce((result, edge) => {
-                return result.concat(normalizeHeading(edge.node));
-            }, []);
-
+        const categories = useCategories(allMarkdownRemark);
         return <WrapedComponent categories={categories} {...props}/>
     };
 };
+
+function useCategories(allMarkdownRemark) {
+    return useMemo(() => {
+        return allMarkdownRemark.edges
+            .reduce((result, edge) => {
+                return result.concat(normalizeHeading(edge.node));
+            }, []);
+    }, [allMarkdownRemark]);
+}
