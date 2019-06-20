@@ -1,3 +1,5 @@
+
+
 export function normalizeHeading(data) {
     const path = data.fields.slug;
     return [{

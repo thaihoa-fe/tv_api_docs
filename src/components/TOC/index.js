@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { normalizeHeading } from './utils';
+import withCategories from './withCategories';
 import MenuItem from './MenuItem';
 
 const Menu = styled.div`
@@ -46,40 +47,23 @@ export function drawListItem(categories, onClick) {
   });
 }
 
-function TOC({ onClick }) {
-  const { allMarkdownRemark } = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark(sort:  { fields: frontmatter___priority, order: DESC }) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
-            htmlAst
-          }
-        }
-      }
-    }
-  `);
-
-  const categories = allMarkdownRemark.edges
-    .reduce((result, edge) => {
-      return result.concat(normalizeHeading(edge.node));
-    }, []);
-  return <Menu>{drawListItem(categories, onClick)}</Menu>;
+export function TOC({ categories, className }) {
+  if (!categories) {
+    return null;
+  }
+  return <Menu className={className}>{drawListItem(categories)}</Menu>;
 }
 
 TOC.propTypes = {
-  onClick: PropTypes.func,
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({})
+  ),
   className: PropTypes.string,
 };
 
 TOC.defaultProps = {
-  className: null,
-  onClick: () => {},
+  categories: null,
+  className: null
 };
 
-export default TOC;
+export default withCategories(TOC);
