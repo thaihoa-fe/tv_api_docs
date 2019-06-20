@@ -49,7 +49,7 @@ const Link = styled(GatsbyLink)`
   }
 `;
 
-function MenuItem({ index, level, onClick, text, path, selected }) {
+function MenuItem({ index, level, text, path, selected }) {
   return (
     <Link
       level={level}
@@ -66,7 +66,6 @@ function MenuItem({ index, level, onClick, text, path, selected }) {
 
 MenuItem.propTypes = {
   index: PropTypes.number,
-  onClick: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   level: PropTypes.number.isRequired,

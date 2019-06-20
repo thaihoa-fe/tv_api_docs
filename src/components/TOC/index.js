@@ -69,7 +69,7 @@ function TOC({ onClick }) {
 }
 
 TOC.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 TOC.defaultProps = {

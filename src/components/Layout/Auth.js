@@ -3,6 +3,10 @@ import { navigate } from 'gatsby';
 import { isExpired, clearAuthToken } from '../../utils/auth';
 import isBrowser from '../../utils/browserDetect';
 
+/*
+Leave it here for later usage
+*/
+
 function Auth({ children, ...rest }) {
   useEffect(() => {
     const id = setInterval(() => {

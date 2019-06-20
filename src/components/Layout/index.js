@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import Header, { HEIGHT } from './Header';
-import Auth from './Auth';
 import GlobalStyle from './GlobalStyle';
 
 const Wrapper = styled.div`
@@ -26,7 +25,7 @@ function Layout({ children, hasTextSearching, hasAPIExplorerLink, hasDocLink, do
         }
       `}
       render={data => (
-        <Auth>
+        <>
           <GlobalStyle />
           <Header
             siteTitle={data.site.siteMetadata.title}
@@ -36,7 +35,7 @@ function Layout({ children, hasTextSearching, hasAPIExplorerLink, hasDocLink, do
             docsVersion={docsVersion}
           />
           <Wrapper>{children}</Wrapper>
-        </Auth>
+        </>
       )}
     />
   );

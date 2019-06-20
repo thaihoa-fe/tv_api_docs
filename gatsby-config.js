@@ -1,5 +1,3 @@
-const proxy = require('http-proxy-middleware');
-
 module.exports = {
   siteMetadata: {
     title: 'Trust Vision API Documentation',
@@ -71,16 +69,5 @@ module.exports = {
         icon: 'src/assets/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
-  ],
-  developMiddleware: app => {
-    app.use(
-      '/proxy-api/',
-      proxy({
-        target: 'http://staging-api.trustingsocial.com',
-        pathRewrite: {
-          '/proxy-api/': '',
-        },
-      })
-    );
-  },
+  ]
 };

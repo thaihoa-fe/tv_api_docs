@@ -1,6 +1,7 @@
 ---
 date: 3rd May 2019
 title: "Customer API"
+priority: 1
 ---
 
 ## Authentication mechanism

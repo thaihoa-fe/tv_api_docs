@@ -2,6 +2,7 @@
 index: true
 date: 3rd May 2019
 title: "Introduction"
+priority: 3
 ---
 
 ## About Trusting Social
