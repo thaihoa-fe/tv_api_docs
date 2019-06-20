@@ -46,7 +46,7 @@ export function drawListItem(categories, onClick) {
 function TOC({ onClick }) {
   const { allMarkdownRemark } = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark(sort:  { fields: frontmatter___priority, order: DESC }) {
         edges {
           node {
             fields {
@@ -62,9 +62,10 @@ function TOC({ onClick }) {
     }
   `);
 
-  const categories = allMarkdownRemark.edges.reduce((result, edge) => {
-    return result.concat(normalizeHeading(edge.node));
-  }, []);
+  const categories = allMarkdownRemark.edges
+    .reduce((result, edge) => {
+      return result.concat(normalizeHeading(edge.node));
+    }, []);
   return <Menu>{drawListItem(categories, onClick)}</Menu>;
 }
 

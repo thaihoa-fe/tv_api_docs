@@ -55,8 +55,10 @@ const PageWrapper = styled.div`
 
 const Content = styled.div`
   position: relative;
-  padding: 30px 30px;
-  max-width: 50rem;
+  padding: 3rem 1.5rem;
+  max-width: 42rem;
+  box-sizing: border-box;
+  min-height: 100vh;
   margin: 0 auto;
 
   > table {
@@ -103,6 +105,11 @@ const Content = styled.div`
     margin-bottom: 1.5rem;
     margin-right: 0;
   }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
 `;
 
 const ToggleButton = styled.div`
@@ -136,7 +143,7 @@ const ToggleButton = styled.div`
   }
 `;
 
-function IndexPage({ data }) {
+function DocumentPage({ data }) {
   const { markdownRemark } = data;
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -168,7 +175,7 @@ function IndexPage({ data }) {
   }, []);
 
   return (
-    <Layout docsVersion="v1.0.0" hasAPIExplorerLink>
+    <Layout docsVersion="v1.0.0">
       <SEO />
       <ToggleButton open={showSidebar}>
         <a href="#" onClick={handleToggle}>
@@ -186,7 +193,7 @@ function IndexPage({ data }) {
   );
 }
 
-export default IndexPage;
+export default DocumentPage;
 
 export const query = graphql`
     query($slug: String!) {

@@ -47,6 +47,11 @@ const Link = styled(GatsbyLink)`
     color: #0099e5;
     background: rgba(219, 239, 249, 0.6);
   }
+
+  &.active {
+    color: #0099e5;
+    cursor: default;
+  }
 `;
 
 function MenuItem({ index, level, text, path, selected }) {
@@ -56,6 +61,7 @@ function MenuItem({ index, level, text, path, selected }) {
       to={path}
       title={text}
       selected={selected}
+      activeClassName="active"
     >
       <MdBookmarkBorder />
       {index > 0 && <strong>{`${index}. `}</strong>}

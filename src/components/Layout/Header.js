@@ -112,10 +112,6 @@ function Header({ siteTitle, docsVersion, hasDocLink, hasTextSearching, hasAPIEx
         <SiteTitle>{siteTitle}</SiteTitle>
         <VersionLabel>{docsVersion}</VersionLabel>
         <RightPanel>
-          <IconLink href="#" title="Logout" onClick={handleLogout}>
-            <span>Logout</span>
-            <LogoutIcon />
-          </IconLink>
           {hasAPIExplorerLink && (
             <IconLink
               href="/explorer"

@@ -1,6 +1,6 @@
-# Credit Insight Service API Documentation
+# Trust Vision API Documentation
 
-Website Portal of Trusting Social's Credit Insight API Documentation
+Website Portal of Trusting Social's Trust Vision API Documentation
 
 ## Development 
 
@@ -16,7 +16,7 @@ Start website
 yarn start
 ```
 
-Start storybook
+Start [storybook](https://storybook.js.org/)
 
 ```
 yarn storybook
