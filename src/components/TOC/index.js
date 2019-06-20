@@ -31,7 +31,7 @@ export function drawListItem(categories, onClick) {
 
     return (
       <MenuItem
-        key={c.id}
+        key={actualPath}
         path={actualPath}
         index={counter}
         text={c.value}
