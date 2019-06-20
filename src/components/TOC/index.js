@@ -8,6 +8,7 @@ import MenuItem from './MenuItem';
 const Menu = styled.div`
   width: 100%;
   font-size: 14px;
+  overflow-x: scroll;
 `;
 
 export function drawListItem(categories, onClick) {
@@ -71,9 +72,11 @@ function TOC({ onClick }) {
 
 TOC.propTypes = {
   onClick: PropTypes.func,
+  className: PropTypes.string,
 };
 
 TOC.defaultProps = {
+  className: null,
   onClick: () => {},
 };
 

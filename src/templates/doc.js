@@ -21,15 +21,15 @@ const Sidebar = styled.div`
   width: 24rem;
   height: calc(100vh - ${Layout.HEADER_HEIGHT}px);
   overflow-x: hidden;
-  overflow-y: auto;
   transition: left 0.5s ease;
-  z-index: 1;
+  z-index: 2;
 
   @media (max-width: ${LARGE_SCREEN}) {
     width: 22%;
   }
 
   @media (max-width: ${LAPTOP_SCREEN}) {
+    overflow-y: auto;
     box-sizing: content-box;
     width: 300px;
     left: ${props => (props.open ? 0 : -300)}px;
@@ -143,6 +143,18 @@ const ToggleButton = styled.div`
   }
 `;
 
+const SidebarOverlay = styled.div`
+  display: none;
+  @media (max-width: ${LAPTOP_SCREEN}) {
+    display: block;
+    background: rgba(24, 48, 85, 0.3);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+`;
+
 function DocumentPage({ data }) {
   const { markdownRemark } = data;
   const [showSidebar, setShowSidebar] = useState(false);
@@ -166,12 +178,6 @@ function DocumentPage({ data }) {
         el.click();
       }
     }
-
-    document.documentElement.addEventListener('click', closeSidebar);
-
-    return () => {
-      document.documentElement.removeEventListener('click', closeSidebar);
-    };
   }, []);
 
   return (
@@ -186,6 +192,7 @@ function DocumentPage({ data }) {
       <Sidebar open={showSidebar}>
         <TOC />
       </Sidebar>
+      {showSidebar && <SidebarOverlay onClick={closeSidebar} />}
       <PageWrapper>
         <Content dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </PageWrapper>

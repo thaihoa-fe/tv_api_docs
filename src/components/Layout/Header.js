@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { navigate, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Textfield from '@atlaskit/textfield';
 import {
