@@ -8,13 +8,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${props => props.bodyBgColor || 'transparent'}
+    background-color: ${props => props.bodyBgColor || 'transparent'};
     margin: 0;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
 `;
 
 export default GlobalStyle;

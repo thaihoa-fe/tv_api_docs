@@ -1,6 +1,6 @@
 import '../styles/prism-duotone-light.css';
 import '../styles/custom.css';
-
+import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
@@ -15,21 +15,19 @@ const Sidebar = styled.div`
   background: #f5f7fa;
   position: fixed;
   top: ${Layout.HEADER_HEIGHT}px;
-  padding-top: 10px;
-  padding-bottom: 38px;
   left: 0px;
   width: 24rem;
   height: calc(100vh - ${Layout.HEADER_HEIGHT}px);
   overflow-x: hidden;
-  overflow-y: auto;
   transition: left 0.5s ease;
-  z-index: 1;
+  z-index: 2;
 
   @media (max-width: ${LARGE_SCREEN}) {
     width: 22%;
   }
 
   @media (max-width: ${LAPTOP_SCREEN}) {
+    overflow-y: auto;
     box-sizing: content-box;
     width: 300px;
     left: ${props => (props.open ? 0 : -300)}px;
@@ -50,8 +48,6 @@ const PageWrapper = styled.div`
     margin-left: 0;
   }
 `;
-
-
 
 const Content = styled.div`
   position: relative;
@@ -96,9 +92,12 @@ const Content = styled.div`
     }
   }
 
-  code:before, code:after, tt:before, tt:after {
+  code:before,
+  code:after,
+  tt:before,
+  tt:after {
     letter-spacing: -0.2em;
-    content: " ";
+    content: ' ';
   }
 
   .gatsby-highlight {
@@ -143,6 +142,18 @@ const ToggleButton = styled.div`
   }
 `;
 
+const SidebarOverlay = styled.div`
+  display: none;
+  @media (max-width: ${LAPTOP_SCREEN}) {
+    display: block;
+    background: rgba(24, 48, 85, 0.3);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+`;
+
 function DocumentPage({ data }) {
   const { markdownRemark } = data;
   const [showSidebar, setShowSidebar] = useState(false);
@@ -166,12 +177,6 @@ function DocumentPage({ data }) {
         el.click();
       }
     }
-
-    document.documentElement.addEventListener('click', closeSidebar);
-
-    return () => {
-      document.documentElement.removeEventListener('click', closeSidebar);
-    };
   }, []);
 
   return (
@@ -186,6 +191,7 @@ function DocumentPage({ data }) {
       <Sidebar open={showSidebar}>
         <TOC />
       </Sidebar>
+      {showSidebar && <SidebarOverlay onClick={closeSidebar} />}
       <PageWrapper>
         <Content dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </PageWrapper>
@@ -193,19 +199,27 @@ function DocumentPage({ data }) {
   );
 }
 
+DocumentPage.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      html: PropTypes.string,
+    }),
+  }).isRequired,
+};
+
 export default DocumentPage;
 
 export const query = graphql`
-    query($slug: String!) {
-        markdownRemark(fields: { slug: { eq: $slug } }) {
-            fields {
-                slug
-            }
-            frontmatter {
-                title
-            }
-            timeToRead
-            html
-        }
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
+      timeToRead
+      html
     }
+  }
 `;

@@ -56,13 +56,7 @@ const Link = styled(GatsbyLink)`
 
 function MenuItem({ index, level, text, path, selected }) {
   return (
-    <Link
-      level={level}
-      to={path}
-      title={text}
-      selected={selected}
-      activeClassName="active"
-    >
+    <Link level={level} to={path} title={text} selected={selected} activeClassName="active">
       <MdBookmarkBorder />
       {index > 0 && <strong>{`${index}. `}</strong>}
       <span>{text}</span>
