@@ -1,5 +1,6 @@
 import '../styles/prism-duotone-light.css';
 import '../styles/custom.css';
+import '../styles/gitbook-markdown.css';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
@@ -9,21 +10,21 @@ import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import TOC from '../components/TOC';
-import { LARGE_SCREEN, LAPTOP_SCREEN, SMALL_SCREEN } from '../constants/screens';
+import { LARGE_SCREEN, LAPTOP_SCREEN } from '../constants/screens';
 
 const Sidebar = styled.div`
   background: #f5f7fa;
   position: fixed;
   top: ${Layout.HEADER_HEIGHT}px;
   left: 0px;
-  width: 24rem;
+  width: 22vw;
   height: calc(100vh - ${Layout.HEADER_HEIGHT}px);
   overflow-x: hidden;
   transition: left 0.5s ease;
   z-index: 2;
 
   @media (max-width: ${LARGE_SCREEN}) {
-    width: 22%;
+    width: 22vw;
   }
 
   @media (max-width: ${LAPTOP_SCREEN}) {
@@ -37,106 +38,41 @@ const Sidebar = styled.div`
 
 const PageWrapper = styled.div`
   position: relative;
-  margin-left: 18%;
+  margin-left: 22vw;
   background: #ffffff;
 
   @media (max-width: ${LARGE_SCREEN}) {
-    margin-left: 22%;
+    margin-left: 22vw;
   }
 
   @media (max-width: ${LAPTOP_SCREEN}) {
     margin-left: 0;
   }
 `;
-
+const DocHeader = styled.header`
+  border-bottom: 2px solid #e6ecf1;
+  margin-bottom: 40px;
+`;
+const DocTitle = styled.h1`
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin-bottom: 0;
+`;
+const DocSummary = styled.p`
+  font-size: 1rem;
+  line-height: 1.625;
+  font-weight: 400;
+  color: #74818d;
+`;
+const Markdown = styled.div``;
 const Content = styled.div`
   position: relative;
-  padding: 1.5rem 1.5rem 3rem;
+  padding: 40px 88px 3rem;
   max-width: 750px;
   box-sizing: border-box;
   min-height: 100vh;
-  /* margin: 0 auto; */
   line-height: 1.625;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 24px 0px;
-  }
-
-  > table {
-    width: calc(62% - 60px);
-    margin-left: 30px;
-
-    @media (max-width: ${LARGE_SCREEN}) {
-      width: calc(65% - 60px);
-    }
-
-    @media (max-width: ${LAPTOP_SCREEN}) {
-      width: calc(60% - 60px);
-    }
-
-    @media (max-width: ${SMALL_SCREEN}) {
-      width: calc(100% - 60px);
-    }
-  }
-
-  blockquote {
-    border-left: 0.125em solid #dfe2e5;
-    color: #6a737d;
-    margin-bottom: 1em;
-    margin-left: 30px;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: 1em;
-
-    > :last-child {
-      margin-bottom: 0;
-    }
-
-    > :first-child {
-      margin-top: 0;
-    }
-  }
-
-  code:before,
-  code:after,
-  tt:before,
-  tt:after {
-    letter-spacing: -0.2em;
-    content: ' ';
-  }
-
-  .gatsby-highlight {
-    margin-bottom: 1.5rem;
-    margin-right: 0;
-  }
-
-  a {
-    color: #3884ff;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  p {
-    margin-bottom: 1.5rem;
-  }
-
-  ul,
-  ol {
-    margin: 0px 0px 24px;
-    padding: 0px 0px 0px 2em;
-  }
-
-  li {
-    margin-bottom: 0;
-    line-height: 1.625;
-  }
 `;
 
 const ToggleButton = styled.div`
@@ -221,7 +157,17 @@ function DocumentPage({ data }) {
       </Sidebar>
       {showSidebar && <SidebarOverlay onClick={closeSidebar} />}
       <PageWrapper>
-        <Content dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        <Content>
+          <DocHeader>
+            <DocTitle>{markdownRemark.frontmatter.title}</DocTitle>
+            <DocSummary>{markdownRemark.fields.readingTime.text}</DocSummary>
+          </DocHeader>
+
+          <Markdown
+            className="gitbook-markdown-body"
+            dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+          />
+        </Content>
       </PageWrapper>
     </Layout>
   );
@@ -242,11 +188,13 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       fields {
         slug
+        readingTime {
+          text
+        }
       }
       frontmatter {
         title
       }
-      timeToRead
       html
     }
   }

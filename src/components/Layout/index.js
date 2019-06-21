@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import Header, { HEIGHT } from './Header';
+import Header, { HEIGHT, MOBILE_HEIGHT } from './Header';
 import GlobalStyle from './GlobalStyle';
+import { SMALL_SCREEN } from '../../constants/screens';
 
 const Wrapper = styled.div`
   margin: 0;
   padding-top: ${HEIGHT}px;
   min-height: 100vh;
   box-sizing: border-box;
+  @media (max-width: ${SMALL_SCREEN}) {
+    padding-top: ${MOBILE_HEIGHT}px;
+  }
 `;
 
 function Layout({ children, hasTextSearching, hasAPIExplorerLink, hasDocLink, docsVersion }) {

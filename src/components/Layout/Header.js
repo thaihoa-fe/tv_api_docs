@@ -6,13 +6,14 @@ import Textfield from '@atlaskit/textfield';
 import { FiSearch as MagnifyingIcon, FiExternalLink as ExternalIcon } from 'react-icons/fi';
 
 import GlobalStyle from './GlobalStyle';
+import { SMALL_SCREEN } from '../../constants/screens';
 import logoIcon from '../../assets/logo.svg';
 
-export const HEIGHT = 60;
+export const HEIGHT = 80;
+export const MOBILE_HEIGHT = 60;
 
 const Wrapper = styled.header`
   align-items: center;
-  background-color: #fff;
   border-bottom: 1px solid #e4e4e4;
   display: block;
   position: fixed;
@@ -22,6 +23,13 @@ const Wrapper = styled.header`
   z-index: 100;
   color: #4c555a;
   height: ${HEIGHT}px;
+  box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+  border-bottom: 1px solid #d4dadf;
+  background-color: #fff;
+
+  @media (max-width: ${SMALL_SCREEN}) {
+    height: ${MOBILE_HEIGHT}px;
+  }
 `;
 
 const Main = styled.div`
@@ -92,7 +100,7 @@ const VersionLabel = styled.label`
 function Header({ siteTitle, docsVersion, hasDocLink, hasTextSearching, hasAPIExplorerLink }) {
   return (
     <Wrapper>
-      <GlobalStyle bodyBgColor="#f5f7fa" />
+      <GlobalStyle bodyBgColor="#F5F7F9" />
       <Main>
         <LogoLink to="/" title="Trusting Social">
           <img src={logoIcon} alt="Trusting Social" />
