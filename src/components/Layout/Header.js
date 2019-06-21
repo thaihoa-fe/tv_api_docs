@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Textfield from '@atlaskit/textfield';
-import {
-  FiSearch as MagnifyingIcon,
-  FiExternalLink as ExternalIcon,
-} from 'react-icons/fi';
+import { FiSearch as MagnifyingIcon, FiExternalLink as ExternalIcon } from 'react-icons/fi';
 
 import GlobalStyle from './GlobalStyle';
 import logoIcon from '../../assets/logo.svg';

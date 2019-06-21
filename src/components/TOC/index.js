@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
-import { normalizeHeading } from './utils';
 import withCategories from './withCategories';
 import MenuItem from './MenuItem';
 
@@ -47,23 +45,21 @@ export function drawListItem(categories, onClick) {
   });
 }
 
-export function TOC({ categories, className }) {
+export function PureTOC({ categories, className }) {
   if (!categories) {
     return null;
   }
   return <Menu className={className}>{drawListItem(categories)}</Menu>;
 }
 
-TOC.propTypes = {
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({})
-  ),
+PureTOC.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.shape({})),
   className: PropTypes.string,
 };
 
-TOC.defaultProps = {
+PureTOC.defaultProps = {
   categories: null,
-  className: null
+  className: null,
 };
 
-export default withCategories(TOC);
+export default withCategories(PureTOC);

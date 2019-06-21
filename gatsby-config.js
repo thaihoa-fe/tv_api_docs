@@ -47,7 +47,7 @@ module.exports = {
             },
           },
           'gatsby-remark-attr',
-          'gatsby-remark-reading-time'
+          'gatsby-remark-reading-time',
         ],
       },
     },
@@ -69,6 +69,6 @@ module.exports = {
         icon: 'src/assets/ts-logo.png', // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-client-side-redirect'
-  ]
+    'gatsby-plugin-client-side-redirect',
+  ],
 };

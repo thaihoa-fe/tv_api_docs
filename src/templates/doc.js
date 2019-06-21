@@ -1,6 +1,6 @@
 import '../styles/prism-duotone-light.css';
 import '../styles/custom.css';
-
+import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
@@ -49,8 +49,6 @@ const PageWrapper = styled.div`
   }
 `;
 
-
-
 const Content = styled.div`
   position: relative;
   padding: 3rem 1.5rem;
@@ -94,9 +92,12 @@ const Content = styled.div`
     }
   }
 
-  code:before, code:after, tt:before, tt:after {
+  code:before,
+  code:after,
+  tt:before,
+  tt:after {
     letter-spacing: -0.2em;
-    content: " ";
+    content: ' ';
   }
 
   .gatsby-highlight {
@@ -198,19 +199,23 @@ function DocumentPage({ data }) {
   );
 }
 
+DocumentPage.propTypes = {
+  data: PropTypes.shape({}).isRequired,
+};
+
 export default DocumentPage;
 
 export const query = graphql`
-    query($slug: String!) {
-        markdownRemark(fields: { slug: { eq: $slug } }) {
-            fields {
-                slug
-            }
-            frontmatter {
-                title
-            }
-            timeToRead
-            html
-        }
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+      }
+      timeToRead
+      html
     }
+  }
 `;
