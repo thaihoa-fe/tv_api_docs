@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   margin: 0;
   padding-top: ${HEIGHT}px;
   min-height: 100vh;
+  box-sizing: border-box;
 `;
 
 function Layout({ children, hasTextSearching, hasAPIExplorerLink, hasDocLink, docsVersion }) {

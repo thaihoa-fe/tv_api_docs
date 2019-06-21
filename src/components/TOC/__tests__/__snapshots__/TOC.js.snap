@@ -1,0 +1,677 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TOC renders correctly with categories 1`] = `
+<div
+  className="sc-bwzfXH DhKyp"
+>
+  <a
+    className="sc-bdVaJa gDraOD"
+    href="/about_trusting_social/"
+    level={1}
+    selected={false}
+    title="Introduction"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <span>
+      Introduction
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa giLJLt"
+    href="/about_trusting_social/#about-trusting-social"
+    level={2}
+    selected={false}
+    title="About Trusting Social"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      1. 
+    </strong>
+    <span>
+      About Trusting Social
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa giLJLt"
+    href="/about_trusting_social/#about-the-credit-insight-service"
+    level={2}
+    selected={false}
+    title="About the Credit Insight Service"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      2. 
+    </strong>
+    <span>
+      About the Credit Insight Service
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa giLJLt"
+    href="/about_trusting_social/#encryption-policy"
+    level={2}
+    selected={false}
+    title="Encryption Policy"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      3. 
+    </strong>
+    <span>
+      Encryption Policy
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/about_trusting_social/#encrypting-the-credit-insight"
+    level={3}
+    selected={false}
+    title="Encrypting the Credit Insight"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      3. 
+    </strong>
+    <span>
+      Encrypting the Credit Insight
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa gDraOD"
+    href="/demo/"
+    level={1}
+    selected={false}
+    title="Demo"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      3. 
+    </strong>
+    <span>
+      Demo
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa giLJLt"
+    href="/demo/#heading-1"
+    level={2}
+    selected={false}
+    title="heading 1"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      1. 
+    </strong>
+    <span>
+      heading 1
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa giLJLt"
+    href="/demo/#heading-2"
+    level={2}
+    selected={false}
+    title="heading 2"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      2. 
+    </strong>
+    <span>
+      heading 2
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/demo/#heading-21"
+    level={3}
+    selected={false}
+    title="heading 2.1"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      2. 
+    </strong>
+    <span>
+      heading 2.1
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/demo/#heading-22"
+    level={3}
+    selected={false}
+    title="heading 2.2"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      2. 
+    </strong>
+    <span>
+      heading 2.2
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa gDraOD"
+    href="/customer_apis/"
+    level={1}
+    selected={false}
+    title="Customer API"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      2. 
+    </strong>
+    <span>
+      Customer API
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa giLJLt"
+    href="/customer_apis/#authentication-mechanism"
+    level={2}
+    selected={false}
+    title="Authentication mechanism"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      1. 
+    </strong>
+    <span>
+      Authentication mechanism
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa giLJLt"
+    href="/customer_apis/#interaction-flows"
+    level={2}
+    selected={false}
+    title="Interaction Flows"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      2. 
+    </strong>
+    <span>
+      Interaction Flows
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/customer_apis/#flow-1-compare-faces-between-images"
+    level={3}
+    selected={false}
+    title="Flow 1: Compare faces between images"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      2. 
+    </strong>
+    <span>
+      Flow 1: Compare faces between images
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/customer_apis/#flow-2-verify-face-liveness-in-images"
+    level={3}
+    selected={false}
+    title="Flow 2: Verify face liveness in images"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      2. 
+    </strong>
+    <span>
+      Flow 2: Verify face liveness in images
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa giLJLt"
+    href="/customer_apis/#list-of-apis"
+    level={2}
+    selected={false}
+    title="List of APIs"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      3. 
+    </strong>
+    <span>
+      List of APIs
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/customer_apis/#upload-image"
+    level={3}
+    selected={false}
+    title="Upload Image"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      3. 
+    </strong>
+    <span>
+      Upload Image
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/customer_apis/#compare-face-between-2-images"
+    level={3}
+    selected={false}
+    title="Compare face between 2 images"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      3. 
+    </strong>
+    <span>
+      Compare face between 2 images
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/customer_apis/#get-compare-faces-result"
+    level={3}
+    selected={false}
+    title="Get compare faces result"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      3. 
+    </strong>
+    <span>
+      Get compare faces result
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/customer_apis/#verify-face-liveness"
+    level={3}
+    selected={false}
+    title="Verify face liveness"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      3. 
+    </strong>
+    <span>
+      Verify face liveness
+    </span>
+  </a>
+  <a
+    className="sc-bdVaJa jgUhEO"
+    href="/customer_apis/#get-verify-face-liveness-result"
+    level={3}
+    selected={false}
+    title="Get verify face liveness result"
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"
+      />
+    </svg>
+    <strong>
+      3. 
+    </strong>
+    <span>
+      Get verify face liveness result
+    </span>
+  </a>
+</div>
+`;

@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
-import { normalizeHeading } from './utils';
+import withCategories from './withCategories';
 import MenuItem from './MenuItem';
 
 const Menu = styled.div`
   width: 100%;
   font-size: 14px;
+  overflow-x: scroll;
+  padding-top: 10px;
+  padding-bottom: 38px;
 `;
 
 export function drawListItem(categories, onClick) {
@@ -43,38 +45,21 @@ export function drawListItem(categories, onClick) {
   });
 }
 
-function TOC({ onClick }) {
-  const { allMarkdownRemark } = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark(sort:  { fields: frontmatter___priority, order: DESC }) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
-            htmlAst
-          }
-        }
-      }
-    }
-  `);
-
-  const categories = allMarkdownRemark.edges
-    .reduce((result, edge) => {
-      return result.concat(normalizeHeading(edge.node));
-    }, []);
-  return <Menu>{drawListItem(categories, onClick)}</Menu>;
+export function PureTOC({ categories, className }) {
+  if (!categories) {
+    return null;
+  }
+  return <Menu className={className}>{drawListItem(categories)}</Menu>;
 }
 
-TOC.propTypes = {
-  onClick: PropTypes.func,
+PureTOC.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.shape({})),
+  className: PropTypes.string,
 };
 
-TOC.defaultProps = {
-  onClick: () => {},
+PureTOC.defaultProps = {
+  categories: null,
+  className: null,
 };
 
-export default TOC;
+export default withCategories(PureTOC);

@@ -1,8 +1,3 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
@@ -21,19 +16,18 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
 };
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
   if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({ node, getNode, basePath: 'contents' })
+    const slug = createFilePath({ node, getNode, basePath: 'contents' });
     createNodeField({
       node,
       name: `slug`,
       value: slug,
-    })
+    });
   }
-}
+};
 
-
-exports.createPages = async function ({ actions, graphql }) {
+exports.createPages = async function createPages({ actions, graphql }) {
   try {
     const { data } = await graphql(`
       query {
@@ -52,14 +46,14 @@ exports.createPages = async function ({ actions, graphql }) {
       }
     `);
     data.allMarkdownRemark.edges.forEach(edge => {
-      const slug = edge.node.fields.slug;
+      const { slug } = edge.node.fields;
 
       actions.createPage({
         path: slug,
         component: require.resolve('./src/templates/doc.js'),
         context: {
           slug,
-        }
+        },
       });
 
       if (edge.node.frontmatter.index) {
@@ -67,11 +61,11 @@ exports.createPages = async function ({ actions, graphql }) {
         actions.createRedirect({
           fromPath: '/',
           toPath: slug,
-          isPermanent: true
+          isPermanent: true,
         });
       }
     });
-  } catch(e) {
+  } catch (e) {
     console.error(`Error when creating pages: ${e.toString()}`);
   }
-}
+};
