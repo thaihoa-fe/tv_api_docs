@@ -2,7 +2,7 @@
   display: block;
   word-wrap: break-word;
   overflow: hidden;
-  color: #000;
+  color: #3B454E;
   line-height: 1.7;
   text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -26,6 +26,7 @@
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   font-size: inherit;
+  font-weight: 400;
 }
 .gitbook-markdown-body > *:first-child {
   margin-top: 0 !important;
@@ -59,7 +60,7 @@
 }
 .gitbook-markdown-body strong,
 .gitbook-markdown-body b {
-  font-weight: bold;
+  font-weight: 700;
 }
 .gitbook-markdown-body em {
   font-style: italic;
@@ -112,7 +113,7 @@
 .gitbook-markdown-body h6 {
   margin-top: 1.275em;
   margin-bottom: 0.85em;
-  font-weight: bold;
+  font-weight: 500;
 }
 .gitbook-markdown-body h1 {
   font-size: 2em;

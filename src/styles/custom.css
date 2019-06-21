@@ -9,3 +9,8 @@ h5 {
   font-size: 1rem;
   line-height: 1.1;
 }
+
+
+li li:last-child {
+  margin-bottom: calc(1.5rem / 2);
+}

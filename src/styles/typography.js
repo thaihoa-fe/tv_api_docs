@@ -16,6 +16,10 @@ const typography = new Typography({
       name: 'Roboto',
       styles: ['300', '400', '500', '700'],
     },
+    {
+      name: 'Source Code Pro',
+      styles: ['300', '400', '500', '600'],
+    },
   ],
 });
 
