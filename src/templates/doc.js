@@ -200,7 +200,11 @@ function DocumentPage({ data }) {
 }
 
 DocumentPage.propTypes = {
-  data: PropTypes.shape({}).isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      html: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default DocumentPage;
