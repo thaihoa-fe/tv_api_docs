@@ -9,7 +9,14 @@ const typography = new Typography({
   headerGray: 0,
   headerWeight: 600,
   bodyWeight: 400,
-  boldWeight: 600,
+  boldWeight: 700,
+  bodyColor: '#242A31',
+  googleFonts: [
+    {
+      name: 'Roboto',
+      styles: ['300', '400', '500', '700'],
+    },
+  ],
 });
 
 export default typography;

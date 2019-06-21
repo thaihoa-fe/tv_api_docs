@@ -51,11 +51,21 @@ const PageWrapper = styled.div`
 
 const Content = styled.div`
   position: relative;
-  padding: 3rem 1.5rem;
-  max-width: 42rem;
+  padding: 1.5rem 1.5rem 3rem;
+  max-width: 750px;
   box-sizing: border-box;
   min-height: 100vh;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  line-height: 1.625;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 24px 0px;
+  }
 
   > table {
     width: calc(62% - 60px);
@@ -108,6 +118,21 @@ const Content = styled.div`
   a {
     color: inherit;
     text-decoration: underline;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  ul,
+  ol {
+    margin: 0px 0px 24px;
+    padding: 0px 0px 0px 2em;
+  }
+
+  li {
+    margin-bottom: 0;
+    line-height: 1.625;
   }
 `;
 
