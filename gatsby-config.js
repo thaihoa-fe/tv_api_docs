@@ -46,8 +46,15 @@ module.exports = {
               noInlineHighlight: false,
             },
           },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              linkImagesToOriginal: true
+            }
+          },
           'gatsby-remark-attr',
-          'gatsby-remark-reading-time'
+          'gatsby-remark-reading-time',
+          'gatsby-remark-lazy-load'
         ],
       },
     },
