@@ -116,8 +116,11 @@ const Content = styled.div`
   }
 
   a {
-    color: inherit;
-    text-decoration: underline;
+    color: #3884ff;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   p {
