@@ -73,6 +73,12 @@ const Content = styled.div`
   box-sizing: border-box;
   min-height: 100vh;
   line-height: 1.625;
+
+  @media (max-width: ${LAPTOP_SCREEN}) {
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0 auto;
+  }
 `;
 
 const ToggleButton = styled.div`
