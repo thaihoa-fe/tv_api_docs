@@ -54,7 +54,6 @@ module.exports = {
           },
           'gatsby-remark-attr',
           'gatsby-remark-reading-time',
-          'gatsby-remark-lazy-load',
         ],
       },
     },
