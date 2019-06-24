@@ -87,7 +87,9 @@ const Content = styled.div`
   overflow: scroll;
 
   @media (max-width: ${LAPTOP_SCREEN}) {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 20px;
     margin: 0 auto;
   }
 `;
@@ -100,6 +102,8 @@ const SidebarHeader = styled.div`
     background: #fff;
     align-items: center;
     padding-left: 17px;
+    box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+    border-bottom: 1px solid #d4dadf;
   }
 `;
 

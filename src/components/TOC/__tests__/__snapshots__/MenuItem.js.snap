@@ -5,6 +5,7 @@ exports[`MenuItem renders level 1 correctly 1`] = `
   className="sc-bdVaJa jlhvWq"
   href="/introduction"
   level={1}
+  onClick={[MockFunction]}
   title="Introduction"
 >
   <span
@@ -20,6 +21,7 @@ exports[`MenuItem renders level 2 correctly 1`] = `
   className="sc-bdVaJa eqvLpW"
   href="/introduction"
   level={2}
+  onClick={[MockFunction]}
   title="Introduction"
 >
   <span
