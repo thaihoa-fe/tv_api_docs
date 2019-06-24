@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import withCategories from './withCategories';
 import MenuItem from './MenuItem';
 
@@ -12,31 +13,20 @@ const Menu = styled.div`
   padding-bottom: 38px;
 `;
 
-export function drawListItem(categories, onClick) {
-  let counter = 0;
-  let currentDepth;
-
+export function drawListItem(categories, onClick, activePath) {
   return categories.map(c => {
-    if (currentDepth !== 2 && c.depth === 2) {
-      counter = 0;
-      currentDepth = 2;
-    }
-    if (currentDepth === 2) {
-      if (c.depth === 2) {
-        counter++;
-      } else if (c.depth === 1) {
-        currentDepth = null;
-      }
-    }
-
     const actualPath = c.depth === 1 ? c.path : `${c.path}#${c.id}`;
+    const isActive = c.path === activePath;
+
+    if (!isActive && c.depth !== 1) {
+      return null;
+    }
 
     return (
       <MenuItem
         onClick={onClick}
         key={actualPath}
         path={actualPath}
-        index={counter}
         text={c.value}
         level={c.depth}
         selected={c.selected}
@@ -45,17 +35,22 @@ export function drawListItem(categories, onClick) {
   });
 }
 
-export function PureTOC({ categories, className, onClick }) {
+export function PureTOC({ categories, className, onClick, history }) {
   if (!categories) {
     return null;
   }
-  return <Menu className={className}>{drawListItem(categories, onClick)}</Menu>;
+  return (
+    <Menu className={className}>
+      {drawListItem(categories, onClick, history.location.pathname)}
+    </Menu>
+  );
 }
 
 PureTOC.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.shape({})),
   className: PropTypes.string,
   onClick: PropTypes.func,
+  history: PropTypes.shape({}).isRequired,
 };
 
 PureTOC.defaultProps = {

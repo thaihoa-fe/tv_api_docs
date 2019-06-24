@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { normalizeHeading } from './utils';
+import { globalHistory } from '@reach/router';
 
 function useCategories() {
   const { allMarkdownRemark } = useStaticQuery(graphql`
@@ -31,6 +32,6 @@ function useCategories() {
 export default function withCategories(WrapedComponent) {
   return props => {
     const categories = useCategories();
-    return <WrapedComponent categories={categories} {...props} />;
+    return <WrapedComponent history={globalHistory} categories={categories} {...props} />;
   };
 }

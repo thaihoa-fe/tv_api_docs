@@ -2,30 +2,49 @@
 
 exports[`MenuItem renders level 1 correctly 1`] = `
 <a
-  className="sc-bdVaJa jlhvWq"
+  className="sc-bwzfXH eevfLr"
   href="/introduction"
   level={1}
   onClick={[MockFunction]}
   title="Introduction"
 >
   <span
-    className="sc-bwzfXH fkhtsm"
+    className="sc-htpNat eqFeY"
   >
     Introduction
   </span>
+  <svg
+    className="sc-bdVaJa jjLnhl"
+    fill="currentColor"
+    height="1em"
+    stroke="currentColor"
+    strokeWidth="0"
+    style={
+      Object {
+        "color": undefined,
+      }
+    }
+    viewBox="0 0 24 24"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+    />
+  </svg>
 </a>
 `;
 
 exports[`MenuItem renders level 2 correctly 1`] = `
 <a
-  className="sc-bdVaJa eqvLpW"
+  className="sc-bwzfXH dZqHTV"
   href="/introduction"
   level={2}
   onClick={[MockFunction]}
   title="Introduction"
 >
   <span
-    className="sc-bwzfXH jBPDSi"
+    className="sc-htpNat cIuRgo"
   >
     Introduction
   </span>

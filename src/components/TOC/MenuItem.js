@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
+import { MdChevronRight } from 'react-icons/md';
 
 const topLinkStyles = css`
   &.active {
@@ -21,9 +22,23 @@ const topTextStyles = css`
   }
 `;
 
+const ExpandIcon = styled(MdChevronRight)`
+  color: #9daab6;
+  font-size: 18px;
+  transition: all 0.2s linear;
+  .active & {
+    transform: rotate(90deg);
+  }
+  :hover & {
+    color: #5c6975;
+  }
+`;
+
 const Link = styled(GatsbyLink)`
   padding: 7px 24px 7px 16px;
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-decoration: none;
   border: 1px solid transparent;
   border-width: 1px 0px 1px 1px;
@@ -51,6 +66,7 @@ function MenuItem({ level, text, path, onClick }) {
   return (
     <Link onClick={onClick} level={level} to={path} title={text} activeClassName="active">
       <Text level={level}>{text}</Text>
+      {level === 1 && <ExpandIcon />}
     </Link>
   );
 }
