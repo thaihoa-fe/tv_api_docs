@@ -8,11 +8,11 @@ const Menu = styled.div`
   width: 100%;
   font-size: 14px;
   overflow-x: scroll;
-  padding-top: 10px;
+  padding-top: 32px;
   padding-bottom: 38px;
 `;
 
-export function drawListItem(categories, onClick) {
+export function drawListItem(categories) {
   let counter = 0;
   let currentDepth;
 
@@ -39,7 +39,6 @@ export function drawListItem(categories, onClick) {
         text={c.value}
         level={c.depth}
         selected={c.selected}
-        onClick={onClick}
       />
     );
   });

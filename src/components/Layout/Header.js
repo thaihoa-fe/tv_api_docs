@@ -2,19 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import Textfield from '@atlaskit/textfield';
-import { FiSearch as MagnifyingIcon, FiExternalLink as ExternalIcon } from 'react-icons/fi';
 
 import GlobalStyle from './GlobalStyle';
-import { SMALL_SCREEN } from '../../constants/screens';
+import { LAPTOP_SCREEN } from '../../constants/screens';
 import logoIcon from '../../assets/logo.svg';
 
 export const HEIGHT = 80;
 export const MOBILE_HEIGHT = 60;
+export const SIDEBAR_WIDTH = 273;
 
 const Wrapper = styled.header`
   align-items: center;
-  border-bottom: 1px solid #e4e4e4;
   display: block;
   position: fixed;
   top: 0;
@@ -27,68 +25,61 @@ const Wrapper = styled.header`
   border-bottom: 1px solid #d4dadf;
   background-color: #fff;
 
-  @media (max-width: ${SMALL_SCREEN}) {
-    height: ${MOBILE_HEIGHT}px;
+  @media (max-width: ${LAPTOP_SCREEN}) {
+    display: flex;
+    align-items: center;
+    height: auto;
   }
 `;
 
 const Main = styled.div`
-  margin: 0 15px;
   display: flex;
   align-items: center;
   height: inherit;
   box-sizing: border-box;
+  width: 1448px;
+  margin: 0 auto;
+
+  @media (max-width: ${LAPTOP_SCREEN}) {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    height: 60px;
+  }
+`;
+
+const LogoWrap = styled.div`
+  width: calc((100vw - 1448px) / 2 + ${SIDEBAR_WIDTH}px);
+  max-width: 273px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  @media (max-width: ${LAPTOP_SCREEN}) {
+    width: auto;
+  }
 `;
 
 const LogoLink = styled(Link)`
-  line-height: 30px;
-  height: 30px;
+  text-decoration: none;
+  padding-left: 16px;
+`;
+
+const Logo = styled.img`
+  height: 37px;
+  margin: 0;
+  display: block;
 `;
 
 const SiteTitle = styled.div`
-  border-left: 1px solid rgba(0, 0, 0, 0.3);
-  height: 30px;
+  border-left: 1px solid #d4dadf;
   display: flex;
   align-items: center;
-  margin-left: 20px;
-  padding-left: 20px;
   font-size: 18px;
   color: #1e2021;
-`;
-
-const RightPanel = styled.div`
-  margin-left: auto;
-  display: flex;
-  flex-flow: row-reverse nowrap;
-  align-items: center;
-  a {
-    text-decoration: none;
-    color: inherit;
+  padding-left: 88px;
+  @media (max-width: ${LAPTOP_SCREEN}) {
+    display: none;
   }
-  > * + * {
-    margin-right: 28px;
-  }
-`;
-
-const IconLink = styled.a`
-  display: flex;
-  flex-basis: auto;
-  flex-shrink: 0;
-  font-size: 1em;
-  cursor: pointer;
-  align-items: center;
-  svg {
-    margin-left: 8px;
-    margin-bottom: 3px;
-  }
-  &:hover {
-    color: #0099e5;
-  }
-`;
-
-const SearchIcon = styled(MagnifyingIcon)`
-  margin: 0 6px 0 0;
-  padding: 0;
 `;
 
 const VersionLabel = styled.label`
@@ -97,57 +88,20 @@ const VersionLabel = styled.label`
   font-family: Arial;
 `;
 
-function Header({ siteTitle, docsVersion, hasDocLink, hasTextSearching, hasAPIExplorerLink }) {
+function Header({ siteTitle, docsVersion }) {
   return (
     <Wrapper>
       <GlobalStyle bodyBgColor="#F5F7F9" />
       <Main>
-        <LogoLink to="/" title="Trusting Social">
-          <img src={logoIcon} alt="Trusting Social" />
-        </LogoLink>
-        <SiteTitle>{siteTitle}</SiteTitle>
-        <VersionLabel>{docsVersion}</VersionLabel>
-        <RightPanel>
-          {hasAPIExplorerLink && (
-            <IconLink
-              href="/explorer"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Open API explorer"
-            >
-              <span>API Explorer</span>
-              <ExternalIcon />
-            </IconLink>
-          )}
-          {hasDocLink && (
-            <IconLink
-              href="/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Open API documentation"
-            >
-              <span>API Documentation</span>
-              <ExternalIcon />
-            </IconLink>
-          )}
-          {hasTextSearching && (
-            <Textfield
-              placeholder="Search..."
-              elemAfterInput={<SearchIcon />}
-              theme={(defaultThemeFn, themeProps) => {
-                const { input, container } = defaultThemeFn(themeProps);
-                return {
-                  input: {
-                    ...input,
-                    boxSizing: 'content-box',
-                    fontSize: '14px',
-                  },
-                  container,
-                };
-              }}
-            />
-          )}
-        </RightPanel>
+        <LogoWrap>
+          <LogoLink to="/" title="Trusting Social">
+            <Logo src={logoIcon} alt="Trusting Social" />
+          </LogoLink>
+        </LogoWrap>
+        <SiteTitle>
+          {siteTitle}
+          <VersionLabel>{docsVersion}</VersionLabel>
+        </SiteTitle>
       </Main>
     </Wrapper>
   );
@@ -155,9 +109,6 @@ function Header({ siteTitle, docsVersion, hasDocLink, hasTextSearching, hasAPIEx
 
 Header.propTypes = {
   siteTitle: PropTypes.string.isRequired,
-  hasTextSearching: PropTypes.bool.isRequired,
-  hasAPIExplorerLink: PropTypes.bool.isRequired,
-  hasDocLink: PropTypes.bool.isRequired,
   docsVersion: PropTypes.string.isRequired,
 };
 

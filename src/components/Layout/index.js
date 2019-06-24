@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-import Header, { HEIGHT, MOBILE_HEIGHT } from './Header';
+import Header, { HEIGHT, MOBILE_HEIGHT, SIDEBAR_WIDTH } from './Header';
 import GlobalStyle from './GlobalStyle';
-import { SMALL_SCREEN } from '../../constants/screens';
+import { LAPTOP_SCREEN } from '../../constants/screens';
 
 const Wrapper = styled.div`
   margin: 0;
   padding-top: ${HEIGHT}px;
   min-height: 100vh;
   box-sizing: border-box;
-  @media (max-width: ${SMALL_SCREEN}) {
+  @media (max-width: ${LAPTOP_SCREEN}) {
     padding-top: ${MOBILE_HEIGHT}px;
   }
 `;
@@ -61,5 +61,7 @@ Layout.defaultProps = {
 };
 
 Layout.HEADER_HEIGHT = HEIGHT;
+Layout.MOBILE_HEADER_HEIGHT = MOBILE_HEIGHT;
+Layout.SIDEBAR_WIDTH = SIDEBAR_WIDTH;
 
 export default Layout;

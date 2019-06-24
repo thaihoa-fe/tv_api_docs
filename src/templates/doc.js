@@ -5,27 +5,29 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi';
+import { FaBars } from 'react-icons/fa';
+import { MdArrowBack } from 'react-icons/md';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import TOC from '../components/TOC';
-import { LARGE_SCREEN, LAPTOP_SCREEN } from '../constants/screens';
+import { LAPTOP_SCREEN } from '../constants/screens';
+
+export const CONTENT_WIDTH = '1448px';
 
 const Sidebar = styled.div`
-  background: #f5f7fa;
-  position: fixed;
-  top: ${Layout.HEADER_HEIGHT}px;
-  left: 0px;
-  width: 22vw;
-  height: calc(100vh - ${Layout.HEADER_HEIGHT}px);
+  background: #f5f7f9;
+  align-items: stretch;
+  border-right: 1px solid #e6ecf1;
   overflow-x: hidden;
   transition: left 0.5s ease;
   z-index: 2;
+  position: fixed;
+  top: ${Layout.HEADER_HEIGHT}px;
 
-  @media (max-width: ${LARGE_SCREEN}) {
-    width: 22vw;
-  }
+  width: calc((100% - ${CONTENT_WIDTH}) / 2 + ${Layout.SIDEBAR_WIDTH}px);
+  padding-left: calc((100% - ${CONTENT_WIDTH}) / 2);
+  height: calc(100vh - 80px);
 
   @media (max-width: ${LAPTOP_SCREEN}) {
     overflow-y: auto;
@@ -33,20 +35,27 @@ const Sidebar = styled.div`
     width: 300px;
     left: ${props => (props.open ? 0 : -300)}px;
     box-shadow: ${props => (props.open ? '0 1px 8px #999' : 'none')};
+    position: fixed;
+    top: ${Layout.MOBILE_HEADER_HEIGHT}px;
+    height: 100vh;
+    z-index: 103;
+    top: 0;
   }
 `;
 
-const PageWrapper = styled.div`
-  position: relative;
-  margin-left: 22vw;
-  background: #ffffff;
+const PageBody = styled.div`
+  display: flex;
+  background: #fff;
+`;
 
-  @media (max-width: ${LARGE_SCREEN}) {
-    margin-left: 22vw;
-  }
+const DocContainer = styled.main`
+  position: relative;
+  background: #ffffff;
+  margin-left: calc((100% - ${CONTENT_WIDTH}) / 2 + ${Layout.SIDEBAR_WIDTH}px);
 
   @media (max-width: ${LAPTOP_SCREEN}) {
-    margin-left: 0;
+    width: 100%;
+    margin: 0 auto;
   }
 `;
 const DocHeader = styled.header`
@@ -68,9 +77,9 @@ const DocSummary = styled.p`
 const Markdown = styled.div``;
 const Content = styled.div`
   position: relative;
-  padding: 40px 88px 3rem;
+  padding: 40px 0 3rem;
+  margin: 0 88px;
   max-width: 750px;
-  box-sizing: border-box;
   min-height: 100vh;
   line-height: 1.625;
 
@@ -81,13 +90,38 @@ const Content = styled.div`
   }
 `;
 
+const SidebarHeader = styled.div`
+  display: none;
+  @media (max-width: ${LAPTOP_SCREEN}) {
+    display: flex;
+    height: ${Layout.MOBILE_HEADER_HEIGHT}px;
+    background: #fff;
+    align-items: center;
+    padding-left: 17px;
+  }
+`;
+
+const CloseSideBarIcon = styled(MdArrowBack)`
+  font-size: 20px;
+  display: block;
+  color: #242a31;
+`;
+
+const ToggleButtonIcon = styled(FaBars)`
+  display: block;
+  font-size: 16px;
+  color: #242a31;
+`;
+
 const ToggleButton = styled.div`
-  padding: 8px 8px 8px 0;
   transition: all 0.5s ease;
+  padding: 8px;
   display: none;
   position: fixed;
-  top: 80px;
-  z-index: 11;
+  top: 30px;
+  left: 8px;
+  transform: translateY(-50%);
+  z-index: 102;
   overflow: hidden;
   box-sizing: content-box;
   a {
@@ -96,10 +130,6 @@ const ToggleButton = styled.div`
     height: 38px;
     align-items: center;
     justify-content: center;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    box-shadow: ${props => (props.open ? '0 1px 8px #999' : 'none')};
-    border: ${props => (props.open ? 'none' : '1px solid #e4e4e4')};
     cursor: pointer;
     outline: none;
     color: #58666e;
@@ -108,19 +138,23 @@ const ToggleButton = styled.div`
   }
   @media (max-width: ${LAPTOP_SCREEN}) {
     display: block;
-    left: ${props => (props.open ? 300 : 0)}px;
   }
 `;
 
 const SidebarOverlay = styled.div`
   display: none;
   @media (max-width: ${LAPTOP_SCREEN}) {
-    display: block;
     background: rgba(24, 48, 85, 0.3);
+    display: block;
     position: fixed;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 102;
+    top: 0;
+    left: 0;
+    transition: all 0.2s linear;
+    opacity: ${props => (props.open ? 1 : 0)};
+    visibility: ${props => (props.open ? 'visible' : 'hidden')};
   }
 `;
 
@@ -152,29 +186,31 @@ function DocumentPage({ data }) {
   return (
     <Layout docsVersion="v1.0.0">
       <SEO />
-      <ToggleButton open={showSidebar}>
-        <a href="#" onClick={handleToggle}>
-          <FiChevronsLeft style={{ display: showSidebar ? 'block' : 'none' }} />
-          <FiChevronsRight style={{ display: !showSidebar ? 'block' : 'none' }} />
-        </a>
+      <ToggleButton open={showSidebar} onClick={handleToggle}>
+        <ToggleButtonIcon />
       </ToggleButton>
-      <Sidebar open={showSidebar}>
-        <TOC />
-      </Sidebar>
-      {showSidebar && <SidebarOverlay onClick={closeSidebar} />}
-      <PageWrapper>
-        <Content>
-          <DocHeader>
-            <DocTitle>{markdownRemark.frontmatter.title}</DocTitle>
-            <DocSummary>{markdownRemark.fields.readingTime.text}</DocSummary>
-          </DocHeader>
+      <PageBody>
+        <Sidebar open={showSidebar}>
+          <SidebarHeader>
+            <CloseSideBarIcon onClick={closeSidebar} />
+          </SidebarHeader>
+          <TOC />
+        </Sidebar>
+        <SidebarOverlay open={showSidebar} onClick={closeSidebar} />
+        <DocContainer>
+          <Content>
+            <DocHeader>
+              <DocTitle>{markdownRemark.frontmatter.title}</DocTitle>
+              <DocSummary>{markdownRemark.fields.readingTime.text}</DocSummary>
+            </DocHeader>
 
-          <Markdown
-            className="gitbook-markdown-body"
-            dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
-          />
-        </Content>
-      </PageWrapper>
+            <Markdown
+              className="gitbook-markdown-body"
+              dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+            />
+          </Content>
+        </DocContainer>
+      </PageBody>
     </Layout>
   );
 }
