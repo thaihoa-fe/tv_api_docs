@@ -56,6 +56,8 @@ const DocContainer = styled.main`
   @media (max-width: ${LAPTOP_SCREEN}) {
     width: 100%;
     margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 `;
 const DocHeader = styled.header`
@@ -82,10 +84,10 @@ const Content = styled.div`
   max-width: 750px;
   min-height: 100vh;
   line-height: 1.625;
+  overflow: scroll;
 
   @media (max-width: ${LAPTOP_SCREEN}) {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 0;
     margin: 0 auto;
   }
 `;
@@ -194,7 +196,7 @@ function DocumentPage({ data }) {
           <SidebarHeader>
             <CloseSideBarIcon onClick={closeSidebar} />
           </SidebarHeader>
-          <TOC />
+          <TOC onClick={closeSidebar} />
         </Sidebar>
         <SidebarOverlay open={showSidebar} onClick={closeSidebar} />
         <DocContainer>

@@ -47,9 +47,9 @@ const Text = styled.span`
   ${props => (props.level === 1 ? topTextStyles : null)}
 `;
 
-function MenuItem({ level, text, path }) {
+function MenuItem({ level, text, path, onClick }) {
   return (
-    <Link level={level} to={path} title={text} activeClassName="active">
+    <Link onClick={onClick} level={level} to={path} title={text} activeClassName="active">
       <Text level={level}>{text}</Text>
     </Link>
   );
@@ -59,6 +59,11 @@ MenuItem.propTypes = {
   text: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   level: PropTypes.number.isRequired,
+  onClick: PropTypes.func,
+};
+
+MenuItem.defaultProps = {
+  onClick: () => {},
 };
 
 export default MenuItem;

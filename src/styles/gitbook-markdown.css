@@ -1,26 +1,12 @@
 .gitbook-markdown-body {
   display: block;
   word-wrap: break-word;
-  overflow: hidden;
   color: #3B454E;
   line-height: 1.7;
   text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
-  /* Printing */
-  /* Typography */
-  /* Spacing */
-  /* Links */
-  /* Images */
-  /* Horizontal lines */
-  /* Headings */
-  /* Code blocks */
-  /* Tables */
-  /* Lists */
-  /* Blockquote */
-  /* Description Lists */
-  /* Task Lists */
 }
 .gitbook-markdown-body * {
   box-sizing: border-box;

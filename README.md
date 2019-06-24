@@ -32,7 +32,7 @@ yarn build
 
 - You can add more documentation pages by creating markdown files (*.md) in `contents` folder.
 - Each file will be transpiled to a static HTML page. Example: `introduction.md` will become `introduction/index.html`.
-- Remember to provide informations in markdown's frontmatter.
+- Remember to provide information in markdown's frontmatter.
 
     | Field Name | Type              | Description                                     |
     |------------|-------------------|-------------------------------------------------|

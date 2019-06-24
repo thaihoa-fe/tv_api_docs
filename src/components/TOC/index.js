@@ -12,7 +12,7 @@ const Menu = styled.div`
   padding-bottom: 38px;
 `;
 
-export function drawListItem(categories) {
+export function drawListItem(categories, onClick) {
   let counter = 0;
   let currentDepth;
 
@@ -33,6 +33,7 @@ export function drawListItem(categories) {
 
     return (
       <MenuItem
+        onClick={onClick}
         key={actualPath}
         path={actualPath}
         index={counter}
@@ -44,21 +45,23 @@ export function drawListItem(categories) {
   });
 }
 
-export function PureTOC({ categories, className }) {
+export function PureTOC({ categories, className, onClick }) {
   if (!categories) {
     return null;
   }
-  return <Menu className={className}>{drawListItem(categories)}</Menu>;
+  return <Menu className={className}>{drawListItem(categories, onClick)}</Menu>;
 }
 
 PureTOC.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.shape({})),
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 PureTOC.defaultProps = {
   categories: null,
   className: null,
+  onClick: () => {},
 };
 
 export default withCategories(PureTOC);
